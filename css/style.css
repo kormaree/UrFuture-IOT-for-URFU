@@ -1,18 +1,23 @@
 html {
     box-sizing: border-box;
+    height: 100%;
 }
 
 *, *::after, *::before {
     box-sizing: inherit;
     margin: 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 
 body {
+    margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     background-color: #F9F9F9;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .panel {
@@ -35,6 +40,11 @@ hr {
     background-color:#F9F9F9; /* Цвет линии */
 }
 
+.panel_line {
+    position: inherit;
+    bottom: 82px;
+}
+
 .panel ul {
     list-style-type: none;
     padding: 0;
@@ -55,4 +65,109 @@ hr {
     width: 330px;
     height: 43px;
     font-weight: 500;
+}
+
+.polygon {
+    position: absolute;
+    bottom: 0;
+}
+
+.rectangle {
+    position: absolute;
+    bottom: 0;
+    right: 555px;
+}
+
+.ellipse1 {
+    position: absolute;
+    top: 0;
+    left: 224px;
+}
+
+.ellipse2 {
+    position: absolute;
+    top: 174px;
+    right: 100px; 
+
+}
+
+.menu {
+    width: 447px;
+    height: 50px;
+    position: absolute;
+    top: 71px;
+    right: 183px;
+}
+
+
+.menu_entry {
+    width: 161px;
+    height: 48px;
+    color:#F9F9F9;
+    background-color:#4C4D91;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.menu_registration {
+    width: 161px;
+    height: 48px;
+    color:#F9F9F9;
+    background-color:#4C4D91;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+.container-title {
+    display: flex;
+    width: 573px;
+    height: 125px;
+    margin-left: 178px;
+    margin-top: 374px;
+}
+
+.container-title h1 {
+    font-size: 90px;
+    color: #4C4D91;
+    font-weight: 500;
+    margin-left: 35px;
+    margin-top: 15px;
+}
+
+.title-description {
+    margin-left: 178px;
+    font-size: 36px;
+    color: #4C4D91;
+    width: 822px;
+    margin-top: 19px;
+}
+
+.container-continue {
+    width: 508px;
+    height: 224px;
+    background-color: #D66945;
+    border: none;
+    border-radius: 30px;
+    position: absolute;
+    opacity: 90%;
+    top: 428px;
+    right: 250px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-continue h2 {
+    color: #FDFCFA;
+    width: 354px;
+    height: 78px;
+    margin: 50px 108px 46px 46px;
+    text-align: left;
+}
+
+.arrow {
+    margin: 0px 433px 50px 45px;   
 }

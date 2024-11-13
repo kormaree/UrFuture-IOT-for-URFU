@@ -18,6 +18,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .panel {
@@ -88,7 +89,6 @@ hr {
     position: absolute;
     top: 174px;
     right: 100px; 
-
 }
 
 .menu {
@@ -110,6 +110,10 @@ hr {
     font-size: 16px;
 }
 
+.menu_entry:hover {
+    cursor: pointer;
+}
+
 .menu_registration {
     width: 161px;
     height: 48px;
@@ -121,12 +125,16 @@ hr {
     margin-left: 40px;
 }
 
+.menu_registration:hover {
+    cursor: pointer;
+}
+
 .container-title {
     display: flex;
     width: 573px;
     height: 125px;
     margin-left: 178px;
-    margin-top: 374px;
+    margin-top: 374px; 
 }
 
 .container-title h1 {
@@ -160,6 +168,10 @@ hr {
     flex-direction: column;
 }
 
+.container-continue:hover {
+    cursor: pointer;
+}
+
 .container-continue h2 {
     color: #FDFCFA;
     width: 354px;
@@ -170,4 +182,187 @@ hr {
 
 .arrow {
     margin: 0px 433px 50px 45px;   
+}
+
+.wrapper {
+    background-color: #FFF6ED;
+    width: 100%;
+    height: 100%;
+}
+
+
+.left-part {
+    background-color: #3D3E85;
+    overflow: hidden;
+    background: linear-gradient(190deg, rgba(61, 62, 133, 1) 30%, rgba(181, 180, 251, 33%));
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    clip-path: polygon(0% 0%, 65% 0%, 50% 45%, 56% 85%, 90% 100%, 0% 100%);
+}
+
+.ellipse22 {
+    position: absolute;
+    top: 384px;
+    left: 750px; 
+}
+
+.polygon2 {
+    position: absolute;
+    bottom: 0;
+}
+
+.rectangle2 {
+    position: absolute;
+    top: 94px;
+    left: 0; 
+}
+
+.container-title_authorization {
+    display: flex;
+    width: 573px;
+    height: 125px;
+    margin-top: 88px;
+    margin-left: 69px;
+    position: absolute;
+
+}
+
+.container-title_authorization h1 {
+    font-size: 90px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 35px;
+    margin-top: 15px;
+}
+
+.title-description_authorization {
+    font-size: 36px;
+    color: #fff;
+    width: 900px;
+    height: 140px;
+    text-transform: uppercase;
+    margin-top: 253px;
+    margin-left: 69px;
+    position: absolute;
+}
+
+
+.authorization-container {
+    position: absolute;
+    width: 551px;
+    height: 566px;
+    top: 259px;
+    right: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authorization-container h2 {
+    color: #394561;
+    font-size: 34px;
+    font-weight: 500;
+    margin-bottom: 79px;
+}
+
+.authorization-container_email {
+    width: 550px;
+    height: 102px;
+    margin-bottom: 61px;
+}
+
+.authorization-container_email h3 {
+    color: #394561;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 48.41px;
+}
+
+.authorization-container_email_input {
+    width: 551px;
+    display: flex;
+    border-bottom: 2px solid #5A5885;
+}
+
+.authorization-container_email_input_field {
+    width: 340px;
+    height: 22px;
+    color: #A1ACBA;
+    border: none;
+    background-color: #FFF6ED;
+    font-size: 18px;
+    margin-right: 186px;
+}
+
+.authorization-container_email_input_faceicon {
+    margin-bottom: 6px;
+}
+
+.authorization-container_password {
+    width: 550px;
+    height: 102px;
+}
+
+.authorization-container_password h3 {
+    color: #394561;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 48.41px;
+}
+
+.authorization-container_password_input {
+    width: 551px;
+    display: flex;
+    border-bottom: 2px solid #5A5885;
+}
+
+.authorization-container_password_input_field {
+    width: 340px;
+    height: 22px;
+    color: #A1ACBA;
+    border: none;
+    background-color: #FFF6ED;
+    font-size: 18px;
+    margin-right: 186px;
+}
+
+.authorization-container_enter {
+    width: 161px;
+    height: 48px;
+    background-color: #4E4F93;
+    border: none;
+    border-radius: 10px;
+    color: #F9F9F9;
+    font-size: 16px;
+    margin-top: 93px;
+}
+
+.authorization-container_enter:hover {
+    cursor: pointer;
+}
+
+
+.authorization-container_no-registration {
+    display: flex;
+    width: 440px;
+    height: 24px;
+    margin-top: 16px;
+}
+
+.authorization-container_no-registration_question {
+    color: #586885;
+    font-size: 16px;
+    line-height: 24px;
+    width: 248px;
+}
+
+.authorization-container_no-registration_registracion {
+    color: #326BDA;
+    text-decoration: none;
+    width: 192px;
+    font-size: 16px;
+    line-height: 24px;
 }

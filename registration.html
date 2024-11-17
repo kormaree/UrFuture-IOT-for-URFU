@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrFuture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left-part">
+            <img src="images/polygon2.png" class = "polygon2">
+            <img src="images/rectangle2.png" class = "rectangle2">
+            <img src="images/ellipse22.png" class = "ellipse22">
+            <div class="container-title_authorization">
+                <img src="images/whitelogo.png" alt="Логотип UrFuture">
+                <h1>UrFuture</h1>
+            </div>
+            <div class="title-description_authorization">
+                ИНДИВИДУАЛЬНЫЕ ОБРАЗОВАТЕЛЬНЫЕ ТРАЕКТОРИИ ИРИТ-РТФ
+            </div>
+        </div>
+
+        <div class="registration-container">
+            <h2>Регистрация</h2>
+            <div class="registration-container_name-and-lastname">
+                <div class="registration-container_name-and-lastname_lastname">
+                    <h3>Фамилия*</h3>
+                    <input type="text" class="registration-container_name-and-lastname_lastname_input" placeholder="Введите фамилию">
+                </div>
+                <div class="registration-container_name-and-lastname_name">
+                    <h3>Имя*</h3>
+                    <input type="text" class="registration-container_name-and-lastname_name_input" placeholder="Введите имя">
+                </div>
+            </div>
+            <span class="registration-container_password_error-message" style="color: #C05640; font-size: 14px; font-weight: 500; display: noe;">Введите данные</span>
+            <div class="registration-container_patronymic">
+                <h3>Отчество*</h3>
+                    <input type="text" class="registration-container_patronymic_input" placeholder="Введите отчество">
+            </div>
+            <div class="registration-container_email">
+                <h3>Email*</h3>
+                <input type="text" class="registration-container_email_input" placeholder="Введите email">
+            </div>
+            <div class="registration-container_password">
+                <h3>Пароль*</h3>
+                <div class = "registration-container_password_input">
+                    <input type="text" class="registration-container_password_input_field" placeholder="Введите пароль">
+                    <img class="registration-container_password_input_view" style="display: none;" src="images/show-password.png" alt="Показать пароль">
+                    <img class="registration-container_password_input_not-view" src="images/hide-password.png" alt="Спрятать пароль">
+                </div>
+                <span class="registration-container_password_error-message" style="color: #C05640; font-weight: 500; display: none;">Пароли не совпадают</span>
+            </div>
+            <div class="registration-container_repeat-password">
+                <h3>Повторите пароль*</h3>
+                <div class = "registration-container_repeat-password_input">
+                    <input type="text" class="registration-container_repeat-password_input_field" placeholder="Введите пароль">
+                    <img class="registration-container_repeat-password_input_view" src="images/show-password.png" alt="Показать пароль">
+                    <img class="registration-container_repeat-password_input_not-view" style="display: none;" src="images/hide-password.png" alt="Спрятать пароль">
+                </div>
+                <span class="registration-container_repeat-password_error-message" style="color: #C05640; font-weight: 500; display: none;">Пароли не совпадают</span>
+            </div>
+            <a href="#">
+                <button class="registration-container_enter">
+                    Регистрация
+                </button>
+            </a>
+            <div class="registration-container_have-autorisation">
+                <div class = "registration-container_have-autorisation_question">У вас есть учетная запись?</div>
+                <a href = "#" class = "registration-container_have-autorisation_enter">Войти</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

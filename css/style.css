@@ -548,6 +548,10 @@ hr {
     font-size: 16px;
 }
 
+.registration-container_enter:hover {
+    cursor: pointer;
+}
+
 .registration-container_have-autorisation {
     display: flex;
     width: 305px;

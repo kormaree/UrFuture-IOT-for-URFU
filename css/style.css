@@ -871,7 +871,7 @@ a {
 .my-direction {
     margin-top: 58px;
     margin-left: 174px;
-    width: 100%;
+    width: calc(100%-70px);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -883,6 +883,229 @@ a {
     width: 337px;
     height: 43px;
     font-size: 35px;
+}
+
+.my-direction_student {
+    width: 667px;
+    height: 171px;
+    margin-top: 67px;
+    display: flex;
+    flex-direction: row;
+}
+
+.my-direction_student_info {
+    width: 474px;
+    height: 171px;
+    margin-left: 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-direction_student_info h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.my-direction_student_info_container {
+    width: 700px;
+    height: 102px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-direction_student_info_container_group {
+    width: 700px;
+    height: 22px;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: row;
+}
+
+.my-direction_student_info_container_group h3 {
+    width: 71px;
+    height: 22px;
+    margin-left: 117px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFA03A;
+}
+
+.my-direction_student_info_container_group h4 {
+    width: 150px;
+    height: 22px;
+    margin-left: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.my-direction_student_info_container_email {
+    width: 700px;
+    height: 22px;
+    padding-top: 28px;
+    display: flex;
+    flex-direction: row;
+}
+
+.my-direction_student_info_container_email h3 {
+    width: 188px;
+    height: 22px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFA03A;
+}
+
+.my-direction_student_info_container_email h4 {
+    width: 400px;
+    height: 22px;
+    margin-left: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.my-direction_student_info_container_direction {
+    width: 700px;
+    height: 22px;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: row;
+}
+
+.my-direction_student_info_container_direction h3 {
+    width: 177px;
+    height: 22px;
+    margin-left: 11px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFA03A;
+}
+
+.my-direction_student_info_container_direction h4 {
+    width: 400px;
+    height: 22px;
+    margin-left: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.my-direction_info-of-direction {
+    width: 1261px;
+    height: auto;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 62px;
+    margin-bottom: 65px;
+}
+
+.my-direction_info-main-persons {
+    width: 1126px;
+    height: 302px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-direction_info-main-persons_container {
+    width: 516px;
+    height: 302px;
+    box-shadow: 1px 1px 12px 12px rgba(63, 61, 61, 0.052);
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.my-direction_info-main-persons_container_rop {
+    width: 260px;
+    height: 233px;
+    margin-left: 16px;
+}
+
+.my-direction_info-main-persons_container_rop h2 {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.my-direction_info-main-persons_container_rop h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.my-direction_info-main-persons_container_rop_info {
+    width: 260px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+.my-direction_info-main-persons_container_rop_info_item {
+    width: 260px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.my-direction_info-main-persons_container_rop_info_item h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.my-direction_info-main-persons_container_rop_info_item p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.my-direction_info-main-persons_container_tutor {
+    width: 252px;
+    height: 233px;
+    margin-left: 20px;
+}
+
+.my-direction_info-main-persons_container_tutor h2 {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.my-direction_info-main-persons_container_tutor h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.my-direction_info-main-persons_container_tutor_info {
+    width: 252px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+}
+
+.my-direction_info-main-persons_container_tutor_info_item {
+    width: 260px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.my-direction_info-main-persons_container_tutor_info_item h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.my-direction_info-main-persons_container_tutor_info_item p {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .choosing-direction_container {

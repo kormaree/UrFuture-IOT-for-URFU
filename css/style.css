@@ -871,7 +871,7 @@ a {
 .my-direction {
     margin-top: 58px;
     margin-left: 174px;
-    width: calc(100%-70px);
+    width: calc(100%-174px);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -1404,4 +1404,80 @@ a {
     position: absolute;
     top: 498px;
     left: 1566px;
+}
+
+.completed-courses {
+    margin-top: 58px;
+    margin-left: 178px;
+    width: calc(100%-178px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.completed-courses h1 {
+    width: 365px;
+    height: 43px;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+.dropdown-toggle {
+    min-width: 359px;
+    height: 56px;
+    background-color: #FFFFFF;
+    border: 0.5px solid #C0C0C0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px 16px 23px 14px;
+    cursor: pointer;
+}
+
+.dropdown-toggle h2 {
+    width: 158px;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.dropdown-toggle img {
+    padding-top: 7px;
+}
+
+.img_dropdown-active {
+    display: block;
+}
+
+.img_dropdown-not-active {
+    display: none;
+}
+
+.dropdown-menu {
+    list-style: none;
+    width: 100%;
+    height: 336px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 6px 6px rgba(63, 61, 61, 0.052);
+    padding: 10px 0px 0px 0px;
+    display: none;
+}
+
+.dropdown-item {
+    border: none;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 39px;
+    text-align: start;
+    padding: 6px 0px 6px 16px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.menu-active {
+    display: block;
 }

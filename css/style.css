@@ -798,9 +798,9 @@ a {
 }
 
 .my-direction {
-    margin-top: 58px;
-    margin-left: 174px;
-    width: calc(100%-174px);
+    margin-top: 186px;
+    margin-left: 104px;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -1347,25 +1347,25 @@ a {
 }
 
 .completed-courses {
-    margin-top: 58px;
+    margin-top: 180px;
     margin-left: 178px;
-    width: calc(100%-178px);
-    height: 100%;
+    width: 100%;
+    height: calc(100%-125px);
     display: flex;
     flex-direction: column;
     align-items: start;
 }
 
 .completed-courses h1 {
-    width: 365px;
+    width: 700px;
     height: 43px;
     font-size: 35px;
     font-weight: 500;
-    margin-bottom: 35px;
+    margin-bottom: 62px;
 }
 
 .dropdown-toggle {
-    min-width: 359px;
+    min-width: 381px;
     height: 56px;
     background-color: #FFFFFF;
     border: 0.5px solid #C0C0C0;
@@ -1386,6 +1386,7 @@ a {
 
 .dropdown-toggle img {
     padding-top: 7px;
+    pointer-events: none;
 }
 
 .img_dropdown-active {
@@ -1396,15 +1397,24 @@ a {
     display: none;
 }
 
+.img_dropdown-active.hidden {
+    display: none;
+}
+
+.img_dropdown-not-active.visible {
+    display: block;
+}
+
 .dropdown-menu {
     list-style: none;
-    width: 100%;
+    width: 381px;
     height: 336px;
     background-color: #FFFFFF;
     border-radius: 5px;
     box-shadow: 0.5px 0.5px 6px 6px rgba(63, 61, 61, 0.052);
     padding: 10px 0px 0px 0px;
     display: none;
+    position: absolute;
 }
 
 .dropdown-item {
@@ -1416,8 +1426,37 @@ a {
     padding: 6px 0px 6px 16px;
     font-weight: 500;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .menu-active {
     display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown-menu.menu-active {
+    display: block;
+}
+
+.completed-courses_container {
+    width: 1579px;
+    height: auto;
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px;
+    padding: 0px;
+}
+
+.completed-courses_container li {
+    width: 497px;
+    height: 180px;
+    background-color: #F1ECFF;
+    list-style: none;
+    border-radius: 15px;
+    box-shadow: 0.3px 0.3px 4px 4px rgba(63, 61, 61, 0.039);
+    padding: 22px;
 }

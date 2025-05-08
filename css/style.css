@@ -1348,7 +1348,7 @@ a {
 
 .completed-courses {
     margin-top: 180px;
-    margin-left: 178px;
+    margin-left: 108px;
     width: 100%;
     height: calc(100%-125px);
     display: flex;
@@ -1459,4 +1459,29 @@ a {
     border-radius: 15px;
     box-shadow: 0.3px 0.3px 4px 4px rgba(63, 61, 61, 0.039);
     padding: 22px;
+}
+
+.recommendation-for-chosen-profession {
+    margin-top: 180px;
+    margin-left: 108px;
+    width: 100%;
+    height: calc(100%-125px);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.recommendation-for-chosen-profession h1 {
+    width: 950px;
+    height: 43px;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 22px;
+}
+
+.recommendation-for-chosen-profession h2 {
+    width: 1650px;
+    height: 43px;
+    font-size: 24px;
+    font-weight: 400;
 }

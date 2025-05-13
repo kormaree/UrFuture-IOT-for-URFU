@@ -1457,7 +1457,7 @@ a {
     background-color: #F1ECFF;
     list-style: none;
     border-radius: 15px;
-    box-shadow: 0.3px 0.3px 4px 4px rgba(63, 61, 61, 0.039);
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.14);
     padding: 22px;
 }
 
@@ -1485,3 +1485,237 @@ a {
     font-size: 24px;
     font-weight: 400;
 }
+
+.definite-course {
+    margin-top: 186px;
+    margin-left: 104px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: start; 
+    gap: 23px; 
+}
+
+.definite-course h1 {
+    font-weight: 500;
+    width: 746px;
+    height: 34px;
+    font-size: 28px;
+    margin: 0; 
+}
+
+.course-arrow {
+    width: 35px;         
+    height: 35px;
+    cursor: pointer;
+}
+
+.course-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3px; 
+}
+
+.course-code {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.course-header {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    position: relative;
+}
+
+.course-score {
+    position: static;
+    margin-left: -58px; 
+    margin-top: 0px; 
+    margin-bottom: 0;
+}
+
+.course-score h2{
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.score-value {
+    color: #6AD26F; 
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 16px;
+}
+
+.folders-container {
+    margin-top: 30px;
+    margin-left: -58px;
+    width: 746px;
+    display: flex;
+    gap: 77px;
+}
+
+.folder {
+    position: relative; 
+    width: fit-content;; 
+}
+
+.folder-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.folder--orange .folder__icon {
+    display: block;
+    width: 227px;
+    height: 140px;
+    filter: 
+        drop-shadow(0px 3px 16px rgba(79, 48, 11, 0.025))
+        drop-shadow(0px 0px 3px rgba(79, 48, 11, 0.25));
+}
+
+.folder--yellow .folder__icon {
+    display: block;
+    width: 227px;
+    height: 140px;
+    filter: 
+        drop-shadow(0px 3px 16px rgba(79, 48, 11, 0.05))
+        drop-shadow(0px 0px 3px rgba(79, 48, 11, 0.15));
+}
+
+.folder__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    width: 167px; 
+    text-align: left;
+    color: #FFFFFF; 
+}
+
+.folder__title {
+    font-weight: 350;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.folder__text {
+    font-weight: semibold;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+}
+
+.course-content {
+    margin-top: 30px; 
+    width: 1164px; 
+    margin-left: -58px; 
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 500; 
+    margin-bottom: 12px; 
+    line-height: 1.2;
+    color: #000000;
+}
+
+.annotation-text,
+.outcomes-list {
+    font-size: 22px;
+    font-weight: 400; 
+    line-height: 34px;
+    color: #000000;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.annotation-section {
+    margin-bottom: 41px; 
+}
+
+.outcomes-section {
+    margin-bottom: 65px; 
+}
+
+.outcomes-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.outcomes-list li {
+    margin-bottom: 0px;
+    padding-left: 0;
+    text-indent: 0;
+    font-size: 22px;
+    line-height: 34px;
+    text-align: left;
+}
+
+.meta-block {
+    position: absolute;
+    width: 420px;
+    height: 944px;
+    left: 1226px;
+    top: 4px;
+    background: #FFFFFF;
+    border-radius: 15px; 
+    box-shadow: 
+        0px 3px 14px 2px rgba(0, 0, 0, 0.1),
+        0px 0px 5px -3px rgba(0, 0, 0, 0.08);
+    padding: 36px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+.meta-content {
+    width: 348px;
+    height: 848px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meta-section {
+    margin-bottom: 38px;
+    width: 100%;
+}
+
+.meta-section:last-child {
+    margin-bottom: 0;
+}
+
+.meta-title {
+    font-size: 22px;
+    font-weight: 500; 
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+    color: #000000;
+}
+
+.meta-info {
+    font-size: 20px;
+    font-weight: 400; 
+    margin: 0;
+    line-height: 28px;
+    color: #000000;
+}
+
+.meta-line {
+    line-height: 35px !important; 
+    margin: 0 0 4px 0; 
+}
+
+.meta-line:last-child {
+    margin-bottom: 0; 
+}
+

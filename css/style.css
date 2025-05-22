@@ -62,6 +62,34 @@ a {
     margin-left: auto;
 }
 
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 14px 0px 15px 23px;
+}
+
+.button-text {
+    display: none;
+    margin-right: 8px;
+}
+
+.button-icon {
+    display: block;
+}
+
+.profile-button:hover {
+    background-color: #414288;
+    border-radius: 50px;
+}
+
+.profile-button:hover .button-text {
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 600;
+}
+
 .panel_ul_sections_line div :hover {
     border-bottom: 2px solid #414288;
     padding-bottom: 5px;
@@ -1367,13 +1395,14 @@ a {
     min-width: 381px;
     height: 56px;
     background-color: #FFFFFF;
-    border: 0.5px solid #C0C0C0;
+    border: 0.5px solid #D2D2D2;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 17px 16px 23px 14px;
     cursor: pointer;
+    box-shadow: 1px 0.5px 6px 6px rgba(69, 67, 67, 0.023);
 }
 
 .dropdown-toggle h2 {
@@ -1381,6 +1410,7 @@ a {
     height: 20px;
     font-size: 18px;
     font-weight: 500;
+    color: #B8B8B8;
 }
 
 .dropdown-toggle img {
@@ -1410,10 +1440,13 @@ a {
     height: 336px;
     background-color: #FFFFFF;
     border-radius: 5px;
-    box-shadow: 0.5px 0.5px 6px 6px rgba(63, 61, 61, 0.052);
     padding: 10px 0px 0px 0px;
     display: none;
     position: absolute;
+}
+
+.dropdown-menu li :hover {
+    background-color: #F1F1F1;
 }
 
 .dropdown-item {
@@ -1458,31 +1491,6 @@ a {
     border-radius: 15px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.14);
     padding: 22px;
-}
-
-.recommendation-for-chosen-profession {
-    margin-top: 180px;
-    margin-left: 108px;
-    width: 100%;
-    height: calc(100%-125px);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.recommendation-for-chosen-profession h1 {
-    width: 950px;
-    height: 43px;
-    font-size: 35px;
-    font-weight: 500;
-    margin-bottom: 22px;
-}
-
-.recommendation-for-chosen-profession h2 {
-    width: 1650px;
-    height: 43px;
-    font-size: 24px;
-    font-weight: 400;
 }
 
 .definite-course {

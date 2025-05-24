@@ -126,10 +126,10 @@ a {
     padding: 33px 163px 56px 37px;
 }
 
-.panel_ul-personalaccount { top: 150px; left: 120px; }
-.panel_ul-IOT { top: 150px; left: 300px; }
-.panel_ul-profession { top: 150px; left: 400px; }
-.panel_ul-komments { top: 150px; left: 700px; }
+.panel_ul-personalaccount { top: 150px; left: 120px; z-index: 999;}
+.panel_ul-IOT { top: 150px; left: 300px; z-index: 999;}
+.panel_ul-profession { top: 150px; left: 400px; z-index: 999;}
+.panel_ul-komments { top: 150px; left: 700px; z-index: 999;}
 
 .panel_div-personalaccount:hover + .panel_ul-personalaccount,
 .panel_div-IOT:hover + .panel_ul-IOT,
@@ -164,7 +164,7 @@ a {
 .ellipse2 {
     position: absolute;
     top: 0;
-    right: 137px; 
+    right: 137px;
 }
 
 .ellipse3 {
@@ -187,7 +187,6 @@ a {
     right: 183px;
 }
 
-
 .menu_entry {
     width: 161px;
     height: 48px;
@@ -202,10 +201,6 @@ a {
     cursor: pointer;
 }
 
-.menu_registration:hover {
-    cursor: pointer;
-}
-
 .menu_registration {
     width: 161px;
     height: 48px;
@@ -215,6 +210,10 @@ a {
     border: none;
     font-size: 16px;
     margin-left: 40px;
+}
+
+.menu_registration:hover {
+    cursor: pointer;
 }
 
 .container-title {
@@ -732,9 +731,9 @@ a {
     font-size: 18px;
     line-height: 16px;
     width: 212px;
-    height: 18px;
+    height: 22px;
     margin-left: 20px;
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .registration-container_password_input_field:focus {
@@ -769,9 +768,9 @@ a {
     font-size: 18px;
     line-height: 16px;
     width: 212px;
-    height: 18px;
+    height: 22px;
     margin-left: 20px;
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .registration-container_repeat-password_input_field:focus {
@@ -1753,22 +1752,48 @@ a {
 
 .main-content-container {
     display: flex;
-    gap: 15px; 
+    flex-direction: row;
+    gap: 58px; 
     padding: 0 104px;
-    margin-top: 18px;
-    align-items: flex-start; 
-    position: relative; 
+    margin-top: 40px;
+    height: 820px; /* Или другая подходящая высота */
+    overflow: hidden;
 }
 
 .semesters-container {
     display: flex;
+    flex-direction: row;
     gap: 53px;
-    padding: 40px 0px;
+    padding: 20px 0;
     overflow-x: auto;
-    margin: 0 -104px;
-    padding-left: 104px;
-    padding-right: 104px;
-    width: calc(100% + 208px);
+    overflow-y: hidden;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 1320px;
+    scroll-behavior: smooth;
+}
+
+.semesters-container::-webkit-scrollbar {
+    height: 18px;
+}
+.semesters-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.semesters-container::-webkit-scrollbar-thumb {
+    background: #C1C1C1;
+    border-radius: 8px;
+}
+
+.semesters-container {
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 20px,
+        black calc(100% - 20px),
+        transparent
+    );
 }
 
 .semester-block {
@@ -1807,15 +1832,23 @@ a {
 }
 
 .subjects-container {
-    height: 627px;
-    width: 100%;
-    position: absolute;
-    top: 89px; 
+    height: calc(746px - 89px - 30px); /* Высота блока минус заголовок и отступы */
+    width: calc(100%+6px);
     overflow-y: auto;
-    padding: 0 13px; 
+    padding: 0 13px;
     box-sizing: border-box;
-    top: 89px; 
+    position: absolute;
+    top: 89px;
     bottom: 30px;
+}
+
+.subjects-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.subjects-container::-webkit-scrollbar-thumb {
+    background: #C1C1C1;
+    border-radius: 8px;
 }
 
 .subject-item:last-child {
@@ -1858,10 +1891,14 @@ a {
 .subject-item[data-category="programming"] {background-color: #ACFFC7;}
 .subject-item[data-category="mathematics"] {background-color: #FFEDB1;}
 
+
+.info-type-container {
+    width: 316px;
+    height: 570px;
+    margin-top: 12px;
+}
+
 .specialist-block {
-    position: absolute;
-    right: 150px;
-    top: 32px; 
     width: 316px;
     height: 239px;
 }
@@ -1896,13 +1933,10 @@ a {
 }
 
 .category-legend {
-    
-    position: absolute;
-    right: 109px;
-    margin-top: 310px; 
     display: flex;
     flex-direction: column;
     gap: 23px; 
+    padding: 15px;
 }
 
 .legend-item {
@@ -1923,49 +1957,4 @@ a {
     font-weight: 400; 
     line-height: 1.3;
     color: #000000;
-}
-
-.semesters-scroll-container {
-    position: relative;
-    padding-bottom: 62px; 
-}
-
-.semesters-wrapper {
-    display: flex;
-    gap: 53px;
-    overflow-x: auto;
-    scrollbar-width: none; 
-    -ms-overflow-style: none;
-    padding-bottom: 10px; 
-}
-
-.semesters-wrapper::-webkit-scrollbar {
-    display: none; 
-}
-
-.custom-scroll {
-    position: absolute;
-    bottom: 44px;
-    left: 104px;
-    width: 1276px;
-    height: 18px;
-    background: #E8E8E8;
-    border-radius: 9px;
-    overflow: hidden;
-}
-
-.scroll-track {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.scroll-thumb {
-    position: absolute;
-    width: 405px;
-    height: 100%;
-    background: #C1C1C1;
-    border-radius: 9px;
-    cursor: grab;
-    left: 0;
 }

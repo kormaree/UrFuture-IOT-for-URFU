@@ -126,10 +126,10 @@ a {
     padding: 33px 163px 56px 37px;
 }
 
-.panel_ul-personalaccount { top: 150px; left: 120px; z-index: 999;}
-.panel_ul-IOT { top: 150px; left: 300px; z-index: 999;}
-.panel_ul-profession { top: 150px; left: 400px; z-index: 999;}
-.panel_ul-komments { top: 150px; left: 700px; z-index: 999;}
+.panel_ul-personalaccount { top: 150px; left: 120px; }
+.panel_ul-IOT { top: 150px; left: 300px; }
+.panel_ul-profession { top: 150px; left: 400px; }
+.panel_ul-komments { top: 150px; left: 700px; }
 
 .panel_div-personalaccount:hover + .panel_ul-personalaccount,
 .panel_div-IOT:hover + .panel_ul-IOT,
@@ -164,7 +164,7 @@ a {
 .ellipse2 {
     position: absolute;
     top: 0;
-    right: 137px;
+    right: 137px; 
 }
 
 .ellipse3 {
@@ -187,6 +187,7 @@ a {
     right: 183px;
 }
 
+
 .menu_entry {
     width: 161px;
     height: 48px;
@@ -201,6 +202,10 @@ a {
     cursor: pointer;
 }
 
+.menu_registration:hover {
+    cursor: pointer;
+}
+
 .menu_registration {
     width: 161px;
     height: 48px;
@@ -210,10 +215,6 @@ a {
     border: none;
     font-size: 16px;
     margin-left: 40px;
-}
-
-.menu_registration:hover {
-    cursor: pointer;
 }
 
 .container-title {
@@ -731,9 +732,9 @@ a {
     font-size: 18px;
     line-height: 16px;
     width: 212px;
-    height: 22px;
+    height: 18px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 .registration-container_password_input_field:focus {
@@ -768,9 +769,9 @@ a {
     font-size: 18px;
     line-height: 16px;
     width: 212px;
-    height: 22px;
+    height: 18px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 .registration-container_repeat-password_input_field:focus {
@@ -1392,16 +1393,16 @@ a {
 
 .dropdown-toggle {
     min-width: 381px;
-    height: 56px;
+    height: 48px;
     background-color: #FFFFFF;
     border: 0.5px solid #D2D2D2;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 17px 16px 23px 14px;
+    padding: 12px 16px 20px 14px;
     cursor: pointer;
-    box-shadow: 1px 0.5px 6px 6px rgba(69, 67, 67, 0.023);
+    box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.06);
 }
 
 .dropdown-toggle h2 {
@@ -1413,7 +1414,7 @@ a {
 }
 
 .dropdown-toggle img {
-    padding-top: 7px;
+    padding-top: 6px;
     pointer-events: none;
 }
 
@@ -1752,48 +1753,22 @@ a {
 
 .main-content-container {
     display: flex;
-    flex-direction: row;
-    gap: 58px; 
+    gap: 15px; 
     padding: 0 104px;
-    margin-top: 40px;
-    height: 820px; /* Или другая подходящая высота */
-    overflow: hidden;
+    margin-top: 18px;
+    align-items: flex-start; 
+    position: relative; 
 }
 
 .semesters-container {
     display: flex;
-    flex-direction: row;
     gap: 53px;
-    padding: 20px 0;
+    padding: 40px 0px;
     overflow-x: auto;
-    overflow-y: hidden;
-    margin: 0 -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 1320px;
-    scroll-behavior: smooth;
-}
-
-.semesters-container::-webkit-scrollbar {
-    height: 18px;
-}
-.semesters-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 8px;
-}
-.semesters-container::-webkit-scrollbar-thumb {
-    background: #C1C1C1;
-    border-radius: 8px;
-}
-
-.semesters-container {
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 20px,
-        black calc(100% - 20px),
-        transparent
-    );
+    margin: 0 -104px;
+    padding-left: 104px;
+    padding-right: 104px;
+    width: calc(100% + 208px);
 }
 
 .semester-block {
@@ -1832,23 +1807,15 @@ a {
 }
 
 .subjects-container {
-    height: calc(746px - 89px - 30px); /* Высота блока минус заголовок и отступы */
-    width: calc(100%+6px);
-    overflow-y: auto;
-    padding: 0 13px;
-    box-sizing: border-box;
+    height: 627px;
+    width: 100%;
     position: absolute;
-    top: 89px;
+    top: 89px; 
+    overflow-y: auto;
+    padding: 0 13px; 
+    box-sizing: border-box;
+    top: 89px; 
     bottom: 30px;
-}
-
-.subjects-container::-webkit-scrollbar {
-    width: 10px;
-}
-
-.subjects-container::-webkit-scrollbar-thumb {
-    background: #C1C1C1;
-    border-radius: 8px;
 }
 
 .subject-item:last-child {
@@ -1891,14 +1858,10 @@ a {
 .subject-item[data-category="programming"] {background-color: #ACFFC7;}
 .subject-item[data-category="mathematics"] {background-color: #FFEDB1;}
 
-
-.info-type-container {
-    width: 316px;
-    height: 570px;
-    margin-top: 12px;
-}
-
 .specialist-block {
+    position: absolute;
+    right: 150px;
+    top: 32px; 
     width: 316px;
     height: 239px;
 }
@@ -1933,10 +1896,13 @@ a {
 }
 
 .category-legend {
+    
+    position: absolute;
+    right: 109px;
+    margin-top: 310px; 
     display: flex;
     flex-direction: column;
     gap: 23px; 
-    padding: 15px;
 }
 
 .legend-item {
@@ -1957,4 +1923,389 @@ a {
     font-weight: 400; 
     line-height: 1.3;
     color: #000000;
+}
+
+.semesters-scroll-container {
+    position: relative;
+    padding-bottom: 62px; 
+}
+
+.semesters-wrapper {
+    display: flex;
+    gap: 53px;
+    overflow-x: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    padding-bottom: 10px; 
+}
+
+.semesters-wrapper::-webkit-scrollbar {
+    display: none; 
+}
+
+.custom-scroll {
+    position: absolute;
+    bottom: 44px;
+    left: 104px;
+    width: 1276px;
+    height: 18px;
+    background: #E8E8E8;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.scroll-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.scroll-thumb {
+    position: absolute;
+    width: 405px;
+    height: 100%;
+    background: #C1C1C1;
+    border-radius: 9px;
+    cursor: grab;
+    left: 0;
+}
+
+.profession-container {
+    margin: 79px 0 0 104px;
+    max-width: 1481px;
+    padding-bottom: 10px;
+}
+
+.profession-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    
+}
+
+.title-with-button {
+    display: flex;
+    align-items: center;
+    gap: 35px; 
+}
+
+.choose-profession-btn {
+    width: 256px;
+    height: 39px;
+    background-color: #363786;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-shrink: 0; 
+    white-space: nowrap; 
+    line-height: 39px; 
+    padding: 0;
+    vertical-align: middle;
+}
+
+.back-arrow {
+    width: 35px;
+    height: 35px;
+    margin-right: 23px;
+    cursor: pointer;
+}
+
+.profession-title {
+    font-size: 28px;
+    font-weight: 500; 
+    margin: 0;
+    margin-right: 35px; 
+}
+
+.profession-description {
+    width: 1481px;
+    font-size: 22px;
+    font-weight: 400; 
+    line-height: 27px;
+    margin-bottom: 70px;
+}
+
+.profession-description p {
+    margin-bottom: 27px;
+}
+
+.profession-description p:last-child {
+    margin-bottom: 0;
+}
+
+.requirements-section {
+    margin-bottom: 70px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 500; 
+    margin-bottom: 34px;
+}
+
+.requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 40px; 
+    width: 1074px;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: 400; 
+    line-height: 27px;
+}
+
+.requirement-item:last-child {
+    margin-bottom: 0;
+}
+
+.requirement-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.tools-section {
+    margin-bottom: 100px;
+}
+
+.tools-title {
+    font-size: 24px;
+    font-weight: 500; 
+    margin-bottom: 34px;
+}
+
+.tools-list {
+    width: 1074px;
+    font-size: 22px;
+    font-weight: 400; 
+    line-height: 35px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profession-container-2 {
+    margin: 72px 0 0 106px;
+    max-width: 879px;
+    padding-bottom: 80px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 500; 
+    margin: 0;
+}
+
+.profession-cart-2 {
+    position: relative;
+    width: fit-content;
+    margin-left: -13px;
+    margin-top: 32px;
+    margin-bottom: 46px;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.08));
+}
+
+.profession-cart-2 img {
+    display: block;
+}
+
+.profession-names-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 500; 
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+.info-points {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 66px 20px;
+}
+
+.info-point {
+    position: relative;
+    font-size: 22px;
+    font-weight: 400; 
+    line-height: 36px;
+    margin-bottom: 37px;
+    padding-left: 30px;
+    max-width: 838px;
+    color: #000000;
+}
+
+.info-point:last-child {
+    margin-bottom: 0;
+}
+
+.info-point::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #000000;
+}
+
+.courses-title-2 {
+    font-size: 24px;
+    font-weight: 500; 
+    margin: 0 0 28px 0;
+}
+
+.courses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.course-card {
+    background-color: #F1ECFF;
+    border-radius: 10px;
+    padding: 22px 38px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.14));
+    max-width: 838px;
+    min-height: 93px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.course-card.large {
+    min-height: 111px;
+}
+
+.course-name {
+    font-size: 20px;
+    font-weight: 500; 
+    margin: 0 0 10px 0;
+    max-width: 724px;
+}
+
+.course-description {
+    font-size: 20px;
+    font-weight: 400; 
+    margin: 0;
+    max-width: 724px;
+}
+
+.profession-library {
+    padding-left: 108px;
+    margin-top: 64px;
+}
+        
+.profession-library h1 {
+    font-weight: 500;
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
+}
+        
+.dropdown-container {
+    margin-top: 70px;
+}
+        
+.dropdown-toggle-2 {
+    width: 603px;
+    height: 56px;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 19px;
+    box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+        
+.dropdown-toggle-2 h2 {
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    margin: 0;
+}
+        
+.img_dropdown-active {
+    display: block;
+}
+        
+.img_dropdown-not-active {
+    display: none;
+}
+        
+.profession-cards-container {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+        
+.profession-card {
+    width: 330px;
+    height: 393px;
+    position: relative;
+    overflow: hidden;
+    filter: drop-shadow
+        0 3px 14px 2px rgba(0, 0, 0, 0.14),
+        0 5px 5px -3px rgba(0, 0, 0, 0.02);
+}
+        
+.profession-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profession-info {
+    position: absolute;
+    top: 129px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100%; 
+    padding: 0 18px;
+    box-sizing: border-box;
+    text-align: center; 
+}
+
+.profession-name {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    margin: 0 auto; 
+    width: 235px;
+    word-wrap: break-word;
+    color: #272A66;
+    text-align: center; 
+}
+        
+.view-button {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 174px;
+    height: 53px;
+    background-color: #404187;
+    border-radius: 10px;
+    color: white;
+    font-size: 19px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
 }

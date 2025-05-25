@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrFuture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="panel">
+        <ul>
+            <img src="images/logo-panel.svg" alt="Лого">
+        </ul>
+        <ul class="panel_ul_sections">
+            <li class="panel_ul_sections_line">
+                <div class="panel_div-personalaccount"><h2>Личный кабинет</h2></div>
+                <ul class="panel_ul-personalaccount">
+                    <a href="#"><li>Мое направление</li></a>
+                    <a href="#"><li>Пройденные курсы</li></a>
+                </ul>
+            </li>
+            <li class="panel_ul_sections_line">
+                <div class="panel_div-IOT"><h2>ИОТ</h2></div>
+                <ul class="panel_ul-IOT">
+                    <a href="#"><li>Рекомендация курсов под вашу профессию</li></a>
+                    <a href="#"><li>Рекомендация курсов под все профессии</li></a>
+                </ul>
+            </li>
+            <li class="panel_ul_sections_line">
+                <div class="panel_div-profession"><h2>Профессии</h2></div>
+                <ul class="panel_ul-profession">
+                    <a href="#"><li>Библиотека профессий</li></a>
+                    <a href="#"><li>Выбранная профессия</li></a>
+                </ul>
+            </li>
+            <li class="panel_ul_sections_line">
+                <div><h2>Расписание</h2></div>
+            </li>
+            <li class="panel_ul_sections_line">
+                <div class="panel_div-komments"><h2>Отзывы на курсы</h2></div>
+                <ul class="panel_ul-komments">
+                    <a href="#"><li>Отзывы и рейтинг курсов</li></a>
+                    <a href="#"><li>Оценка пройденных курсов</li></a>
+                </ul>
+            </li>
+        </ul>
+        <ul class="panel_ul_icon">
+            <a href="#" class="profile-button">
+                <span class="button-text">Профиль</span>
+                <img src="images/icon-panel.svg" alt="Иконка профиля" class="button-icon">
+            </a>
+        </ul>
+    </div>
+
+    <div class="profession-library">
+        <h1>Библиотека профессий</h1>
+        
+        <div class="dropdown-container">
+            <button data-path="one" class="dropdown-toggle-2">
+                <h2>Дизайнер</h2>
+                <img id="img_dropdown-off" class="img_dropdown-active" src="images/dropdown-off.svg">
+                <img id="img_dropdown-on" class="img_dropdown-not-active" src="images/dropdown-on.svg">
+            </button>
+        </div>
+        
+        <div class="profession-cards-container">
+            <div class="profession-card">
+                <img src="images/Card_prof.png" alt="Графический дизайнер">
+                <div class="profession-info">
+                    <h3 class="profession-name">Графический дизайнер</h3>
+                </div>
+                <button class="view-button" onclick="window.location.href='profession-description.html'">Посмотреть</button>
+            </div>
+            <div class="profession-card">
+                <img src="images/Card_prof.png" alt="UI/UX специалист">
+                <div class="profession-info">
+                    <h3 class="profession-name">UI/UX специалист</h3>
+                </div>
+                <button class="view-button" onclick="window.location.href='profession-description.html'">Посмотреть</button>
+            </div>
+            <div class="profession-card">
+                <img src="images/Card_prof.png" alt="Специалист по Deep Learning">
+                <div class="profession-info">
+                    <h3 class="profession-name">Специалист по Deep Learning</h3>
+                </div>
+                <button class="view-button" onclick="window.location.href='profession-description.html'">Посмотреть</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="js/panel.js"></script>
+</body>
+</html>

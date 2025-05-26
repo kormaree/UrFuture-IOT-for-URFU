@@ -20,36 +20,36 @@ export default function Home() {
                 <li>В разделе “Расписание” вы можете построить расписание на следующий семестр с учетом ваших пожеланий по времени пар, по преподавателям, а также с учетом рекомендованных курсов под вашу профессию</li>
                 </ul>
                 <div className="main-page_content_container_discription_buttons">
-                <button className="main-page_content_container_discription_buttons_item">
-                    <Link to="/professions" className="main-page_content_container_discription_buttons_item_container">
-                    <h2>Профессии</h2>
-                    <img src="/images/chevron-right.png" alt="Далее" />
-                    </Link>
-                </button>
-                <button className="main-page_content_container_discription_buttons_item">
-                    <a href="#" className="main-page_content_container_discription_buttons_item_container">
-                    <h2>Рекомендация курсов под профессию (ИОТ)</h2>
-                    <img src="/images/chevron-right.png" alt="Далее" />
-                    </a>
-                </button>
-                <button className="main-page_content_container_discription_buttons_item">
-                    <a href="#" className="main-page_content_container_discription_buttons_item_container">
-                    <h2>Построение расписания</h2>
-                    <img src="/images/chevron-right.png" alt="Далее" />
-                    </a>
-                </button>
-                <button className="main-page_content_container_discription_buttons_item">
-                    <a href="#" className="main-page_content_container_discription_buttons_item_container">
-                    <h2>Пройденные курсы</h2>
-                    <img src="/images/chevron-right.png" alt="Далее" />
-                    </a>
-                </button>
-                <button className="main-page_content_container_discription_buttons_item">
-                    <a href="#" className="main-page_content_container_discription_buttons_item_container">
-                    <h2>Отзывы на курсы</h2>
-                    <img src="/images/chevron-right.png" alt="Далее" />
-                    </a>
-                </button>
+                <Link to="/professions" className="main-page_content_container_discription_buttons_item">
+                    <button className="main-page_content_container_discription_buttons_item_container">
+                        <h2>Профессии</h2>
+                        <img src="/images/chevron-right.png" alt="Далее" />
+                    </button>
+                </Link>
+                <a href="#" className="main-page_content_container_discription_buttons_item">
+                    <button className="main-page_content_container_discription_buttons_item_container">
+                        <h2>Рекомендация курсов под профессию (ИОТ)</h2>
+                        <img src="/images/chevron-right.png" alt="Далее" />
+                    </button>
+                </a>
+                <a href="#" className="main-page_content_container_discription_buttons_item">
+                    <button className="main-page_content_container_discription_buttons_item_container">
+                        <h2>Построение расписания</h2>
+                        <img src="/images/chevron-right.png" alt="Далее" />
+                    </button>
+                </a>
+                <a href="#" className="main-page_content_container_discription_buttons_item">
+                    <button className="main-page_content_container_discription_buttons_item_container">
+                        <h2>Пройденные курсы</h2>
+                        <img src="/images/chevron-right.png" alt="Далее" />
+                    </button>
+                </a>
+                <a href="#" className="main-page_content_container_discription_buttons_item">
+                    <button className="main-page_content_container_discription_buttons_item_container">
+                        <h2>Отзывы на курсы</h2>
+                        <img src="/images/chevron-right.png" alt="Далее" />
+                    </button>
+                </a>
                 </div>
             </div>
             <div className="main-page_content_container_info">

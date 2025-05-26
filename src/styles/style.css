@@ -126,10 +126,10 @@ a {
     padding: 33px 163px 56px 37px;
 }
 
-.panel_ul-personalaccount { top: 150px; left: 120px; z-index: 999;}
-.panel_ul-IOT { top: 150px; left: 300px; z-index: 999;}
-.panel_ul-profession { top: 150px; left: 400px; z-index: 999;}
-.panel_ul-komments { top: 150px; left: 700px; z-index: 999;}
+.panel_ul-personalaccount { top: 150px; left: 120px; z-index: 5;}
+.panel_ul-IOT { top: 150px; left: 300px; z-index: 5;}
+.panel_ul-profession { top: 150px; left: 400px; z-index: 5;}
+.panel_ul-komments { top: 150px; left: 700px; z-index: 5;}
 
 .panel_div-personalaccount:hover + .panel_ul-personalaccount,
 .panel_div-IOT:hover + .panel_ul-IOT,
@@ -138,11 +138,18 @@ a {
   display: flex;
 }
 
-.panel_ul-personalaccount:hover,
-.panel_ul-IOT:hover,
-.panel_ul-profession:hover,
-.panel_ul-komments:hover {
-  display: flex;
+.panel_ul_sections-item {
+    width: 451px;
+    height: 61px;
+    box-shadow: 0.5px 0.5px 6px 6px rgba(63, 61, 61, 0.052);
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 20px 10px 10px 20px;
+}
+
+.panel_ul_sections-item:hover {
+    cursor: pointer;
 }
 
 .dropdown-visible {
@@ -1268,17 +1275,22 @@ a {
     background-color: #FFFBCC;
     box-shadow: 0.5px 0.5px 6px 6px rgba(63, 61, 61, 0.052);
     cursor: pointer;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .main-page_content_container_discription_buttons_item_container {
     display: flex;
     flex-direction: row;
-    align-items: end;
     justify-content: space-between;
+    align-content: end;
     text-align: left;
-    width: 392px;
-    min-height: 36px;
-    margin: 170px 26px 22px 32px;
+    width: 417px;
+    height: 228px;
+    cursor: pointer;
+    background-color: #FFFBCC;
+    border: none;
+    padding: 140px 26px 32px 22px;
 }
 
 

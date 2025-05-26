@@ -1,45 +1,38 @@
+import { useState, useEffect } from 'react';
+import { fetchUserProfessionDetail } from '../api/users';
+import { type ProfessionDetail } from '../api/professions';
 import Panel from "../components/Panel";
+import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 
 export default function ChosenProfession() {
+    const [profession, setProfession] = useState<ProfessionDetail | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+        fetchUserProfessionDetail()
+            .then(data => setProfession(data))
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return <div>Загрузка выбранной профессии...</div>;
+    }
+    if (!profession) {
+        return <div>Профессия не выбрана</div>;
+    }
 
     return (
-    <>
-        <Panel />
-        <div className="profession-container-2">
-            <h1 className="page-title">Ваша выбранная профессия :</h1>
-            
-            <div className="profession-cart-2">
-                <img src="../images/Block_prof_2.png" alt="Карточка профессии" />
-                <div className="profession-names-2">Специалист по виртуальному прототипированию</div>
+        <>
+            <Panel />
+            <div className="profession-container-2">
+                <h1 className="page-title">Ваша выбранная профессия:</h1>
+                <div className="profession-cart-2">
+                    <img src='/images/Block_prof_2.png' alt={profession.name} />
+                    <div className="profession-names-2">{profession.name}</div>
+                </div>
+
+                <ProfessionInfoPoints />
             </div>
-            
-            <ul className="info-points">
-                <li className="info-point">Рекомендации курсов в рамках ИОТ будут формироваться на основе выбранной вами профессии</li>
-                <li className="info-point">При составлении расписания рекомендации курсов будут учитывать ваш выбор профессии в этом разделе</li>
-                <li className="info-point">В разделе ИОТ вы можете ознакомиться с рекомендацией курсов каждой дисциплины под выбранную профессию</li>
-            </ul>
-            
-            <h2 className="courses-title-2">Лучшие курсы для вашей профессии за все семестры:</h2>
-            
-            <div className="courses-container">
-                <div className="course-card">
-                    <p className="course-name">Программирование на TypeScript (смешанный курс, SkillBox)</p>
-                    <p className="course-description">Современные языки программирования, 2 семестр</p>
-                </div>
-                <div className="course-card large">
-                    <p className="course-name">Введение в Data Science и машинное обучение (Смешанное; StepHe; Без НТК)</p>
-                    <p className="course-description">Анализ данных и искусственный интеллект, 2 семестр</p>
-                </div>
-                <div className="course-card">
-                    <p className="course-name">JavaScript. Разработка пользовательских веб-интерфейсов (HTML-академия)</p>
-                    <p className="course-description">Современные языки программирования, 2 семестр</p>
-                </div>
-                <div className="course-card">
-                    <p className="course-name">Основы архитектуры ЭВМ для инженеров и разработчиков ПО</p>
-                    <p className="course-description">Архитектура ЭВМ, 2 семестр</p>
-                </div>
-            </div>
-        </div>        
-    </>
+        </>
     );
-};
+}

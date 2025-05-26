@@ -15,7 +15,7 @@ export default function ProfessionPage() {
         if (!profession) return;
         try {
             await updateUserProfession(profession.id);
-            navigate(`/professions/${profession.id}`);
+            navigate(`/chosen-profession`);
         } catch (err) {
             console.error('Ошибка выбора профессии', err);
         }

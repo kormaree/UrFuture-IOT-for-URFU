@@ -35,11 +35,11 @@ export default function App() {
             <Route path="/professions" element={<LibraryOfProfessions />} />
             <Route path="/professions/:id" element={<ProfessionPage />} />
             <Route path="/direction" element={<Direction />} />
-            <Route path="/definitecourse" element={<DefiniteCourse />} />
-            <Route path="/coursetoprofession" element={<CourseToProfession />} />
-            <Route path="/completeddisciplines" element={<CompletedDisciplines />} />
-            <Route path="/chosenprofession" element={<ChosenProfession />} />
-            <Route path="/choosingdirection" element={<ChoosingDirection />} />
+            <Route path="/definite-course" element={<DefiniteCourse />} />
+            <Route path="/course-to-profession" element={<CourseToProfession />} />
+            <Route path="/completed-disciplines" element={<CompletedDisciplines />} />
+            <Route path="/chosen-profession" element={<ChosenProfession />} />
+            <Route path="/choosing-direction" element={<ChoosingDirection />} />
             <Route path="*" element={<h2>Не найдено</h2>} />
         </Routes>
     )

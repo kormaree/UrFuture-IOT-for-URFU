@@ -1,12 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Panel from "../components/Panel";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
+import { fetchUserProfessionDetail, type ProfessionDetail } from '../api/users';
 
 
 export default function Home() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
+
+    const [profDetail, setProfDetail] = useState<ProfessionDetail | null>(null);
+    const [profLoading, setProfLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+        fetchUserProfessionDetail()
+            .then(data => setProfDetail(data))
+            .catch(() => setProfDetail(null))
+            .finally(() => setProfLoading(false));
+    }, []);
+
     return (
         <>
         <Panel />
@@ -71,10 +83,18 @@ export default function Home() {
                     <h4>{user?.direction || '—'}</h4>
                 </div>
                 <div className="main-page_content_container_info_profession">
-                    <h2>{user?.profession?.name || 'Не выбрана'}</h2>
-                    <img className="polygon_main-page" src="/images/polygon_main-page.png" alt="" />
-                    <img className="rectangle_main-page" src="/images/rectangle_main-page.png" alt="" />
-                    <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />
+                    {profLoading ? (
+                        <h2>Загрузка...</h2>
+                    ) : profDetail ? (
+                        <>
+                            <h2>{profDetail.name}</h2>
+                            <img className="polygon_main-page" src="/images/polygon_main-page.png" alt="" />
+                            <img className="rectangle_main-page" src="/images/rectangle_main-page.png" alt="" />
+                            <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />
+                        </>
+                    ) : (
+                        <h2>Не выбрана</h2>
+                    )}
                 </div>
             </div>
             </div>

@@ -1,31 +1,19 @@
-import { useState } from 'react'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Welcome from './pages/Welcome'
+import Authorization from './pages/Authorization'
+import Register from './pages/Register'
+import Home from './pages/Home'
+import LibraryOfProfessions from './pages/LibraryOfProfessions'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-        </a>
-        <a href="https://react.dev" target="_blank">
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+    return (
+        <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="home/" element={<Home />} />
+            <Route path="/login" element={<Authorization />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/professions" element={<LibraryOfProfessions />} />
+            <Route path="*" element={<h2>Не найдено</h2>} />
+        </Routes>
+    )
 }
-
-export default App

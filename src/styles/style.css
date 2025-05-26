@@ -185,6 +185,7 @@ a {
     position: absolute;
     top: 71px;
     right: 183px;
+    z-index: 2;
 }
 
 .menu_entry {

@@ -1,9 +1,36 @@
 import { useNavigate } from 'react-router-dom';
-import '../styles/style.css';
+import { useState, useEffect } from 'react';
+import { fetchProfessions, type Profession } from '../api/professions';
 import ProfessionCard from '../components/ProfessionCard';
 import Panel from '../components/Panel';
+import DropdownComponent from '../components/DropdownToggle';
+import '../styles/style.css';
+
+const categories = [
+    'Разработчик',
+    'Инженер',
+    'Специалист по работе с Data Science',
+    'Менеджер и руководитель',
+    'Администратор',
+    'Информационная безопасность',
+    'Gamedev',
+    'Аналитик',
+    'Тестировщик',
+    'Дизайнер',
+    'Другое',
+];
 
 export default function LibraryOfProfessions() {
+    const [category, setCategory] = useState<string>('');
+    const [professions, setProfessions] = useState<Profession[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    console.log(professions);
+    useEffect(() => {
+        setLoading(true);
+        fetchProfessions(category || undefined)
+            .then(setProfessions)
+            .finally(() => setLoading(false));
+    }, [category]);
     const navigate = useNavigate();
 
     return (
@@ -15,36 +42,51 @@ export default function LibraryOfProfessions() {
             <h1>Библиотека профессий</h1>
 
             <div className="dropdown-container">
-            <button data-path="one" className="dropdown-toggle-2">
-                <h2>Дизайнер</h2>
-                <img
-                id="img_dropdown-off"
-                className="img_dropdown-active"
-                src="/images/dropdown-off.svg"
-                alt="Показать"
-                />
-                <img
-                id="img_dropdown-on"
-                className="img_dropdown-not-active"
-                src="/images/dropdown-on.svg"
-                alt="Скрыть"
-                />
-            </button>
+                <button
+                    id="prof-toggle"
+                    type="button"
+                    className="dropdown-toggle-2"
+                    data-path={category || 'all'}
+                >
+                    <h2>{category || 'Все категории'}</h2>
+                    <img
+                        className="img_dropdown-active"
+                        src="/images/dropdown-off.svg"
+                        alt="Открыть список"
+                    />
+                    <img
+                        className="img_dropdown-not-active"
+                        src="/images/dropdown-on.svg"
+                        alt="Закрыть список"
+                    />
+                </button>
+
+                <ul id="prof-menu" className="dropdown-menu">
+                    <li onClick={() => setCategory('')}>Все категории</li>
+                    {categories.map(cat => (
+                        <li key={cat} onClick={() => setCategory(cat)}>
+                            {cat}
+                        </li>
+                    ))}
+                </ul>
+
+                <DropdownComponent toggleId="prof-toggle" menuId="prof-menu" />
             </div>
 
             <div className="profession-cards-container">
-            {[
-                { name: 'Графический дизайнер', path: '/professions/1' },
-                { name: 'UI/UX специалист', path: '/professions/2' },
-                { name: 'Специалист по Deep Learning', path: '/professions/3' },
-            ].map((prof, idx) => (
-                <ProfessionCard
-                    key={idx}
-                    name={prof.name}
-                    path={prof.path}
-                    onClick={() => navigate(prof.path)}
-                />
-            ))}
+                {loading
+                    ? <p>Загрузка…</p>
+                    : professions.length === 0
+                        ? <p>Профессии не найдены</p>
+                        : professions.map(prof => (
+                            <ProfessionCard
+                                key={prof.id}
+                                name={prof.name}
+                                path={`/professions/${prof.id}`}
+                                onClick={() => navigate(`/professions/${prof.id}`)}
+                            />
+                        ))
+                }
             </div>
         </div>
         </div>

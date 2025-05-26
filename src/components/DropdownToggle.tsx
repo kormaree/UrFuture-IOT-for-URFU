@@ -24,6 +24,11 @@ const DropdownComponent: React.FC<DropdownProps> = ({ toggleId, menuId }) => {
     if (toggle && menu) {
       toggle.addEventListener('click', toggleDropdown);
 
+      const menuItems = menu.querySelectorAll('a, li, button, div[role="button"]');
+      menuItems.forEach(item => {
+        item.addEventListener('click', closeDropdown);
+      });
+
       if (isOpen) {
         menu.classList.add('menu-active', 'open');
         toggle.querySelector('.img_dropdown-active')?.classList.add('hidden');

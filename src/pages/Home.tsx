@@ -66,7 +66,7 @@ export default function Home() {
                         <img src="/images/black-icon.svg" alt="Иконка" />
                     </div>
                     <h3>Группа:</h3>
-                    <h4>{user?.group || '—'}</h4>
+                    <h4>РИ-222222</h4>
                     <h3>Направление:</h3>
                     <h4>{user?.direction || '—'}</h4>
                 </div>

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 
 export default function Panel() {
@@ -61,9 +61,11 @@ export default function Panel() {
 
     return (
         <div className="panel">
-            <ul className="panel_logo">
-                <img src="/images/logo-panel.svg" alt="Лого" />
-            </ul>
+            <Link to='/home'>
+                <ul className="panel_logo">
+                    <img src="/images/logo-panel.svg" alt="Лого" />
+                </ul>
+            </Link>
             <ul className="panel_ul_sections">
                 {Object.entries(dropdowns).map(([key, { title, items, position }]) => {
                     if (key === 'schedule') {

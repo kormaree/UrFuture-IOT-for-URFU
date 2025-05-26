@@ -2239,7 +2239,27 @@ a {
     color: black;
     margin: 0;
 }
-        
+
+.dropdown-menu {
+    width: 603px;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.06);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+.dropdown-menu li {
+    padding: 12px 19px;
+    font-size: 16px;
+    color: #333333;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
 .img_dropdown-active {
     display: block;
 }

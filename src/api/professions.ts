@@ -18,8 +18,8 @@ export interface ProfessionDetail {
 
 export async function fetchProfessions(category?: string): Promise<Profession[]> {
     const params = category ? { category } : {};
-    const resp = await api.get<Profession[]>('/professions/', { params });
-    return resp.data;
+    const response = await api.get<Profession[]>('/professions/', { params });
+    return response.data;
 }
 
 

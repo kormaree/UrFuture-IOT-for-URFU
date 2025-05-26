@@ -14,21 +14,21 @@ function createAuthService() {
     };
 
     const login = async (email: string, password: string) => {
-        const resp = await api.post('/login/', { email, password });
-        const tokens = resp.data as { access: string; refresh: string };
+        const response = await api.post('/login/', { email, password });
+        const tokens = response.data as { access: string; refresh: string };
         storeTokens(tokens);
         return tokens;
     };
 
     const register = async (data: any) => {
-        const resp = await api.post('/register/', data);
-        return resp.data;
+        const response = await api.post('/register/', data);
+        return response.data;
     };
 
     const refreshTokens = async (): Promise<{ access: string; refresh: string }> => {
         const oldRefresh = getRefreshToken();
-        const resp = await api.post('/token/refresh/', { refresh: oldRefresh });
-        const { access, refresh } = resp.data as { access: string; refresh?: string };
+        const response = await api.post('/token/refresh/', { refresh: oldRefresh });
+        const { access, refresh } = response.data as { access: string; refresh?: string };
         localStorage.setItem('access', access);
         if (refresh) {
             localStorage.setItem('refresh', refresh);

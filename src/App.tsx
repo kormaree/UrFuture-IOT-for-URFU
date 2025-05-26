@@ -33,7 +33,7 @@ export default function App() {
             <Route path="/login" element={<Authorization />} />
             <Route path="/register" element={<Register />} />
             <Route path="/professions" element={<LibraryOfProfessions />} />
-            <Route path="/professionpage" element={<ProfessionPage />} />
+            <Route path="/professions/:id" element={<ProfessionPage />} />
             <Route path="/direction" element={<Direction />} />
             <Route path="/definitecourse" element={<DefiniteCourse />} />
             <Route path="/coursetoprofession" element={<CourseToProfession />} />

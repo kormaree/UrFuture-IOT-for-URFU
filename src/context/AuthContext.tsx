@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { authService } from '../utils/authService';
 import api from '../api/client';
 
@@ -12,7 +12,7 @@ interface AuthContextValue {
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider = ({ children }: any) => {
     const [user, setUser] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 

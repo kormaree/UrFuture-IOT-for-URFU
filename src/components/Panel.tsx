@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 export default function Panel() {
     const navigate = useNavigate();
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const handleMouseEnter = (dropdownKey: string) => {
         if (timeoutRef.current) {

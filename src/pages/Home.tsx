@@ -2,7 +2,8 @@ import { useContext, useState, useEffect } from 'react';
 import Panel from "../components/Panel";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
-import { fetchUserProfessionDetail, type ProfessionDetail } from '../api/users';
+import { fetchUserProfessionDetail } from '../api/users';
+import { type ProfessionDetail } from '../api/professions'
 
 
 export default function Home() {

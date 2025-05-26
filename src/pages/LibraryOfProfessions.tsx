@@ -82,7 +82,6 @@ export default function LibraryOfProfessions() {
                             <ProfessionCard
                                 key={prof.id}
                                 name={prof.name}
-                                path={`/professions/${prof.id}`}
                                 onClick={() => navigate(`/professions/${prof.id}`)}
                             />
                         ))

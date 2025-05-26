@@ -1,3 +1,4 @@
+import { updateUserProfession } from '../api/users';
 import { useNavigate, useParams } from 'react-router-dom';
 import Panel from "../components/Panel";
 import { fetchProfessionDetail, type ProfessionDetail } from '../api/professions';
@@ -9,6 +10,16 @@ export default function ProfessionPage() {
     const [loading, setLoading] = useState<boolean>(true);
 
     const navigate = useNavigate();
+
+    const handleChooseProfession = async () => {
+        if (!profession) return;
+        try {
+            await updateUserProfession(profession.id);
+            navigate(`/professions/${profession.id}`);
+        } catch (err) {
+            console.error('Ошибка выбора профессии', err);
+        }
+    };
 
     useEffect(() => {
         if (!id) return;
@@ -39,7 +50,7 @@ export default function ProfessionPage() {
                     )}
                     <button 
                         className="choose-profession-btn"
-                        onClick={() => navigate('/chosen-profession')}
+                        onClick={handleChooseProfession}
                     >
                         выбрать профессию
                     </button>

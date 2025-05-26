@@ -1,18 +1,26 @@
 import Panel from "../components/Panel";
+import DropdownComponent from "../components/DropdownToggle";
 
-export default function Direction() {
+export default function CompletedDisciplines() {
   return (
     <>
       <Panel />
       <div className="completed-courses">
         <h1>Пройденные курсы и дисциплины</h1>
         <div>
-          <button data-path="one" className="dropdown-toggle">
+          <DropdownComponent toggleId="dropdown-toggle-1" menuId="dropdown-menu-1" />
+          <button 
+            id="dropdown-toggle-1"
+            className="dropdown-toggle"
+          >
             <h2>Выбор семестра</h2>
-            <img id="img_dropdown-off" className="img_dropdown-active" src="../images/dropdown-off.svg" />
-            <img id="img_dropdown-on" className="img_dropdown-not-active" src="../images/dropdown-on.svg" />
+            <img className="img_dropdown-active" src="../images/dropdown-off.svg" alt="Закрыто" />
+            <img className="img_dropdown-not-active hidden" src="../images/dropdown-on.svg" alt="Открыто" />
           </button>
-          <ul data-target="one" className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <ul 
+            id="dropdown-menu-1"
+            className="dropdown-menu"
+          >
             <li><button className="dropdown-item">1 семестр</button></li>
             <li><button className="dropdown-item">2 семестр</button></li>
             <li><button className="dropdown-item">3 семестр</button></li>

@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import LibraryOfProfessions from './pages/LibraryOfProfessions'
 import ProfessionPage from './pages/ProfessionPage'
 import Direction from './pages/Direction'
-import Discipline from './pages/Discipline'
+import DefiniteCourse from './pages/DefiniteCourse';
 import CourseToProfession from './pages/CourseToProfession'
 import CompletedDisciplines from './pages/CompletedDisciplines'
 import ChosenProfession from './pages/ChosenProfession'
@@ -35,7 +35,7 @@ export default function App() {
             <Route path="/professions" element={<LibraryOfProfessions />} />
             <Route path="/professionpage" element={<ProfessionPage />} />
             <Route path="/direction" element={<Direction />} />
-            <Route path="/discipline" element={<Discipline />} />
+            <Route path="/definitecourse" element={<DefiniteCourse />} />
             <Route path="/coursetoprofession" element={<CourseToProfession />} />
             <Route path="/completeddisciplines" element={<CompletedDisciplines />} />
             <Route path="/chosenprofession" element={<ChosenProfession />} />

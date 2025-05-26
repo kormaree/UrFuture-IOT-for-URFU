@@ -1,8 +1,6 @@
-import { useNavigate } from 'react-router-dom';
 import Panel from "../components/Panel";
 
 export default function ChosenProfession() {
-    const navigate = useNavigate();
 
     return (
     <>

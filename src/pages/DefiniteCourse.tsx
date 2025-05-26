@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Panel from "../components/Panel";
 
-export default function Discipline() {
+export default function DefiniteCourse() {
     const navigate = useNavigate();
 
     return (

@@ -23,15 +23,15 @@ export default function Panel() {
         'personalaccount': {
             title: 'Личный кабинет',
             items: [
-                { text: 'Мое направление', path: '/profile/direction', className: 'panel_ul_sections-item' },
-                { text: 'Пройденные курсы', path: '/profile/courses', className: 'panel_ul_sections-item' }
+                { text: 'Мое направление', path: '/direction', className: 'panel_ul_sections-item' },
+                { text: 'Пройденные курсы', path: '/completeddisciplines', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '120px' }
         },
         'IOT': {
             title: 'ИОТ',
             items: [
-                { text: 'Рекомендация курсов под вашу профессию', path: '/iot/recommendations', className: 'panel_ul_sections-item' },
+                { text: 'Рекомендация курсов под вашу профессию', path: '/coursetoprofession', className: 'panel_ul_sections-item' },
                 { text: 'Рекомендация курсов под все профессии', path: '/iot/all', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '300px' }
@@ -40,7 +40,7 @@ export default function Panel() {
             title: 'Профессии',
             items: [
                 { text: 'Библиотека профессий', path: '/professions', className: 'panel_ul_sections-item' },
-                { text: 'Выбранная профессия', path: '/professions/selected', className: 'panel_ul_sections-item' }
+                { text: 'Выбранная профессия', path: '/chosenprofession', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '400px' }
         },

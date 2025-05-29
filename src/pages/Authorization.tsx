@@ -8,6 +8,7 @@ export default function Authorization() {
     const navigate = useNavigate();
     const [form, setForm] = useState({ email: '', password: '' });
     const [error, setError] = useState<string>('');
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     if (!auth.loading && auth.user) {
         return <Navigate to="/home" replace />;
@@ -19,11 +20,14 @@ export default function Authorization() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
         try {
             await auth.login(form.email, form.password);
             navigate('/home');
         } catch {
             setError('Неверный email или пароль');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -89,8 +93,12 @@ export default function Authorization() {
                     </span>
                 )}
 
-                <button type="submit" className="authorization-container_enter">
-                    Войти
+                <button
+                  type="submit"
+                  className="authorization-container_enter"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Загрузка...' : 'Войти'}
                 </button>
 
                 <div className="authorization-container_no-registration">

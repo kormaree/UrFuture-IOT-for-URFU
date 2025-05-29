@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
 import '../styles/style.css';
+import RegistrationLeftPart from '../components/RegistrationLeftPart';
 
 export default function Register(){
-    const auth = useContext(AuthContext)!;
     const navigate = useNavigate();
     const [form, setForm] = useState({
         last_name: '',
@@ -20,34 +19,18 @@ export default function Register(){
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (form.password !== form.passwordConfirm) {
             setError('Пароли не совпадают');
             return;
         }
-        try {
-            await auth.register(form);
-            navigate('/login');
-        } catch (err: any) {
-            setError(err.message || 'Ошибка регистрации');
-        }
+        navigate('/choosing-direction', { state: form });
     };
 
     return (
         <div className="wrapper">
-            <div className="left-part">
-                <img src="/images/polygon2.png" className="polygon2" alt="" />
-                <img src="/images/rectangle2.png" className="rectangle2" alt="" />
-                <img src="/images/ellipse22.png" className="ellipse22" alt="" />
-                <div className="container-title_website">
-                    <img src="/images/whitelogo.png" alt="Логотип UrFuture" />
-                    <h1>UrFuture</h1>
-                </div>
-                <div className="title-description_website">
-                    ИНДИВИДУАЛЬНЫЕ ОБРАЗОВАТЕЛЬНЫЕ ТРАЕКТОРИИ ИРИТ-РТФ
-                </div>
-            </div>
+            <RegistrationLeftPart />
 
             <form className="registration-container" onSubmit={handleSubmit}>
                 <h2>Регистрация</h2>

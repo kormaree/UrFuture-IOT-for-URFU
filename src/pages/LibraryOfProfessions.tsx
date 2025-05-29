@@ -24,7 +24,6 @@ export default function LibraryOfProfessions() {
     const [category, setCategory] = useState<string>('');
     const [professions, setProfessions] = useState<Profession[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    console.log(professions);
     useEffect(() => {
         setLoading(true);
         fetchProfessions(category || undefined)

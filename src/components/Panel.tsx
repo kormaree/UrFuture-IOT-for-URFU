@@ -32,7 +32,7 @@ export default function Panel() {
             title: 'ИОТ',
             items: [
                 { text: 'Рекомендация курсов под вашу профессию', path: '/course-to-profession', className: 'panel_ul_sections-item' },
-                { text: 'Рекомендация курсов под все профессии', path: '/iot/all', className: 'panel_ul_sections-item' }
+                { text: 'Рекомендация курсов под все профессии', path: '#', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '300px' }
         },
@@ -47,8 +47,8 @@ export default function Panel() {
         'komments': {
             title: 'Отзывы на курсы',
             items: [
-                { text: 'Отзывы и рейтинг курсов', path: '/reviews/library', className: 'panel_ul_sections-item' },
-                { text: 'Оценка пройденных курсов', path: '/reviews/submitted', className: 'panel_ul_sections-item' }
+                { text: 'Отзывы и рейтинг курсов', path: '#', className: 'panel_ul_sections-item' },
+                { text: 'Оценка пройденных курсов', path: '#', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '550px' }
         },
@@ -110,7 +110,7 @@ export default function Panel() {
                 })}
             </ul>
             <ul className="panel_ul_icon">
-                <li className="profile-button" onClick={() => navigate('/profile')}>
+                <li className="profile-button" onClick={() => navigate('#')}>
                     <span className="button-text">Профиль</span>
                     <img
                         src="/images/icon-panel.svg"

@@ -31,19 +31,19 @@ export const AuthProvider = ({ children }: any) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-        await authService.login(email, password);
-        const { data } = await api.get('/users/me/');
-        setUser(data);
+    await authService.login(email, password);
+    const { data } = await api.get('/users/me/');
+    setUser(data);
   };
 
   const register = async (form: any) => {
-        await authService.register(form);
-        await login(form.email, form.password);
+    await authService.register(form);
+    await login(form.email, form.password);
   };
 
   const logout = () => {
-        authService.logout();
-        setUser(null);
+    authService.logout();
+    setUser(null);
   };
 
   return (

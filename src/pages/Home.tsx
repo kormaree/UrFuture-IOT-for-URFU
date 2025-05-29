@@ -44,7 +44,7 @@ export default function Home() {
                         <img src="/images/chevron-right.png" alt="Далее" />
                     </button>
                 </Link>
-                <Link to="/coursetoprofession" className="main-page_content_container_discription_buttons_item">
+                <Link to="/course-to-profession" className="main-page_content_container_discription_buttons_item">
                     <button className="main-page_content_container_discription_buttons_item_container">
                         <h2>Рекомендация курсов под профессию (ИОТ)</h2>
                         <img src="/images/chevron-right.png" alt="Далее" />
@@ -56,7 +56,7 @@ export default function Home() {
                         <img src="/images/chevron-right.png" alt="Далее" />
                     </button>
                 </a>
-                <Link to="/completeddisciplines" className="main-page_content_container_discription_buttons_item">
+                <Link to="/completed-disciplines" className="main-page_content_container_discription_buttons_item">
                     <button className="main-page_content_container_discription_buttons_item_container">
                         <h2>Пройденные курсы</h2>
                         <img src="/images/chevron-right.png" alt="Далее" />

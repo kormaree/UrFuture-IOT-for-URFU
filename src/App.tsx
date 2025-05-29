@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import Welcome from './pages/Welcome'
@@ -10,9 +10,10 @@ import ProfessionPage from './pages/ProfessionPage'
 import Direction from './pages/Direction'
 import DefiniteCourse from './pages/DefiniteCourse';
 import CourseToProfession from './pages/CourseToProfession'
-import CompletedDisciplines from './pages/CompletedDisciplines'
 import ChosenProfession from './pages/ChosenProfession'
 import ChoosingDirection from './pages/ChoosingDirection'
+import ProtectedRoute from './components/ProtectedRoute';
+import CompletedCourses from './pages/CompletedCourses';
 
 function RootRedirect() {
     const auth = useContext(AuthContext)!;
@@ -28,18 +29,22 @@ export default function App() {
     return (
         <Routes>
             <Route path="/" element={<RootRedirect />} />
-            <Route path="welcome/" element={<Welcome />} />
-            <Route path="home/" element={<Home />} />
             <Route path="/login" element={<Authorization />} />
             <Route path="/register" element={<Register />} />
+            <Route path="welcome/" element={<Welcome />} />
             <Route path="/professions" element={<LibraryOfProfessions />} />
             <Route path="/professions/:id" element={<ProfessionPage />} />
-            <Route path="/direction" element={<Direction />} />
             <Route path="/definite-course" element={<DefiniteCourse />} />
-            <Route path="/course-to-profession" element={<CourseToProfession />} />
-            <Route path="/completed-disciplines" element={<CompletedDisciplines />} />
-            <Route path="/chosen-profession" element={<ChosenProfession />} />
-            <Route path="/choosing-direction" element={<ChoosingDirection />} />
+
+            <Route element={<ProtectedRoute> <Outlet/> </ProtectedRoute>}>
+                <Route path="home/" element={<Home />} />
+                <Route path="/direction" element={<Direction />} />
+                <Route path="/course-to-profession" element={<CourseToProfession />} />
+                <Route path="/completed-courses" element={<CompletedCourses />} />
+                <Route path="/chosen-profession" element={<ChosenProfession />} />
+                <Route path="/choosing-direction" element={<ChoosingDirection />} />
+            </Route>
+            
             <Route path="*" element={<h2>Не найдено</h2>} />
         </Routes>
     )

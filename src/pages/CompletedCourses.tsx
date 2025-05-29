@@ -1,7 +1,7 @@
 import Panel from "../components/Panel";
 import DropdownComponent from "../components/DropdownToggle";
 
-export default function CompletedDisciplines() {
+export default function CompletedCourses() {
   return (
     <>
       <Panel />

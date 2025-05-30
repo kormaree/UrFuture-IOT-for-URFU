@@ -8,16 +8,20 @@ export default function ProfessionPage() {
     const { id } = useParams<{ id: string }>();
     const [profession, setProfession] = useState<ProfessionDetail | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const navigate = useNavigate();
 
     const handleChooseProfession = async () => {
         if (!profession) return;
+        setIsSubmitting(true);
         try {
             await updateUserProfession(profession.id);
             navigate(`/chosen-profession`);
         } catch (err) {
             console.error('Ошибка выбора профессии', err);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -51,8 +55,9 @@ export default function ProfessionPage() {
                     <button 
                         className="choose-profession-btn"
                         onClick={handleChooseProfession}
+                        disabled={isSubmitting}
                     >
-                        выбрать профессию
+                        {isSubmitting ? "Загрузка..." : "выбрать профессию"}
                     </button>
                 </div>
                 

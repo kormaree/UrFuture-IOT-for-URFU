@@ -2,8 +2,19 @@ import { createContext, useState, useEffect } from 'react';
 import { authService } from '../utils/authService';
 import api from '../api/client';
 
+export interface User {
+    id: number;
+    last_name: string;
+    first_name: string;
+    patronymic: string;
+    email: string;
+    profession: string | null;
+    direction: string | null;
+    academic_group: string | null;
+}
+
 interface AuthContextValue {
-    user: any;
+    user: User;
     login: (e: string, p: string) => Promise<void>;
     register: (d: any) => Promise<void>;
     logout: () => void;

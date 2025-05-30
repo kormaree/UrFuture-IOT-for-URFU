@@ -2,22 +2,11 @@ import { useContext, useState, useEffect } from 'react';
 import Panel from "../components/Panel";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
-import { fetchUserProfessionDetail, type UserProfessionDetail } from '../api/users';
 
 
 export default function Home() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
-
-    const [profession, setProfession] = useState<UserProfessionDetail | null>(null);
-    const [profLoading, setProfLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-        fetchUserProfessionDetail()
-            .then(data => setProfession(data))
-            .catch(() => setProfession(null))
-            .finally(() => setProfLoading(false));
-    }, []);
 
     return (
         <>
@@ -83,11 +72,9 @@ export default function Home() {
                     <h4>{user?.direction || '—'}</h4>
                 </div>
                 <div className="main-page_content_container_info_profession">
-                    {profLoading ? (
-                        <h2>Загрузка...</h2>
-                    ) : profession ? (
+                    {user?.profession ? (
                         <>
-                            <h2>{profession.profession_name}</h2>
+                            <h2>{user.profession}</h2>
                             <img className="polygon_main-page" src="/images/polygon_main-page.png" alt="" />
                             <img className="rectangle_main-page" src="/images/rectangle_main-page.png" alt="" />
                             <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />

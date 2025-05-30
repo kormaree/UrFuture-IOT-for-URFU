@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
-import { fetchUserProfessionDetail, type UserProfessionDetail } from '../api/users';
+import { useState, useEffect, useContext } from 'react';
 import Panel from "../components/Panel";
 import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 import { fetchRecommendations, type Recommendation } from '../api/recommendations';
+import { AuthContext } from '../context/AuthContext';
 
 export default function ChosenProfession() {
-    const [profession, setProfession] = useState<UserProfessionDetail | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const auth = useContext(AuthContext)!;
+    const user = auth.user;
 
     const [recs, setRecs] = useState<Recommendation[]>([]);
     const [recsLoading, setRecsLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-        fetchUserProfessionDetail()
-            .then(data => setProfession(data))
-            .finally(() => setLoading(false));
-    }, []);
 
     useEffect(() => {
         setRecsLoading(true);
@@ -24,10 +18,7 @@ export default function ChosenProfession() {
           .finally(() => setRecsLoading(false));
     }, []);
 
-    if (loading) {
-        return <div>Загрузка выбранной профессии...</div>;
-    }
-    if (!profession) {
+    if (!user.profession) {
         return <div>Профессия не выбрана</div>;
     }
 
@@ -37,8 +28,8 @@ export default function ChosenProfession() {
             <div className="profession-container-2">
                 <h1 className="page-title">Ваша выбранная профессия:</h1>
                 <div className="profession-cart-2">
-                    <img src='/images/Block_prof_2.png' alt={profession.profession_name} />
-                    <div className="profession-names-2">{profession.profession_name}</div>
+                    <img src='/images/Block_prof_2.png' alt={user.profession} />
+                    <div className="profession-names-2">{user.profession}</div>
                 </div>
 
                 <ProfessionInfoPoints />

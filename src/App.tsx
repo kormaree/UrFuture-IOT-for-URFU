@@ -35,6 +35,7 @@ export default function App() {
             <Route path="/professions" element={<LibraryOfProfessions />} />
             <Route path="/professions/:id" element={<ProfessionPage />} />
             <Route path="/definite-course" element={<DefiniteCourse />} />
+            <Route path="/choosing-direction" element={<ChoosingDirection />} />
 
             <Route element={<ProtectedRoute> <Outlet/> </ProtectedRoute>}>
                 <Route path="home/" element={<Home />} />
@@ -42,7 +43,6 @@ export default function App() {
                 <Route path="/course-to-profession" element={<CourseToProfession />} />
                 <Route path="/completed-courses" element={<CompletedCourses />} />
                 <Route path="/chosen-profession" element={<ChosenProfession />} />
-                <Route path="/choosing-direction" element={<ChoosingDirection />} />
             </Route>
             
             <Route path="*" element={<h2>Не найдено</h2>} />

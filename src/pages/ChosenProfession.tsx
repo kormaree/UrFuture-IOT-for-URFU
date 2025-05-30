@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { fetchUserProfessionDetail } from '../api/users';
-import { type ProfessionDetail } from '../api/professions';
+import { fetchUserProfessionDetail, type UserProfessionDetail } from '../api/users';
 import Panel from "../components/Panel";
 import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 import { fetchRecommendations, type Recommendation } from '../api/recommendations';
 
 export default function ChosenProfession() {
-    const [profession, setProfession] = useState<ProfessionDetail | null>(null);
+    const [profession, setProfession] = useState<UserProfessionDetail | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
     const [recs, setRecs] = useState<Recommendation[]>([]);
@@ -38,8 +37,8 @@ export default function ChosenProfession() {
             <div className="profession-container-2">
                 <h1 className="page-title">Ваша выбранная профессия:</h1>
                 <div className="profession-cart-2">
-                    <img src='/images/Block_prof_2.png' alt={profession.name} />
-                    <div className="profession-names-2">{profession.name}</div>
+                    <img src='/images/Block_prof_2.png' alt={profession.profession_name} />
+                    <div className="profession-names-2">{profession.profession_name}</div>
                 </div>
 
                 <ProfessionInfoPoints />

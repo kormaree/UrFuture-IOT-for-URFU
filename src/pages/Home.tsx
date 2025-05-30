@@ -2,21 +2,20 @@ import { useContext, useState, useEffect } from 'react';
 import Panel from "../components/Panel";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
-import { fetchUserProfessionDetail } from '../api/users';
-import { type ProfessionDetail } from '../api/professions'
+import { fetchUserProfessionDetail, type UserProfessionDetail } from '../api/users';
 
 
 export default function Home() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
 
-    const [profDetail, setProfDetail] = useState<ProfessionDetail | null>(null);
+    const [profession, setProfession] = useState<UserProfessionDetail | null>(null);
     const [profLoading, setProfLoading] = useState<boolean>(true);
 
     useEffect(() => {
         fetchUserProfessionDetail()
-            .then(data => setProfDetail(data))
-            .catch(() => setProfDetail(null))
+            .then(data => setProfession(data))
+            .catch(() => setProfession(null))
             .finally(() => setProfLoading(false));
     }, []);
 
@@ -86,9 +85,9 @@ export default function Home() {
                 <div className="main-page_content_container_info_profession">
                     {profLoading ? (
                         <h2>Загрузка...</h2>
-                    ) : profDetail ? (
+                    ) : profession ? (
                         <>
-                            <h2>{profDetail.name}</h2>
+                            <h2>{profession.profession_name}</h2>
                             <img className="polygon_main-page" src="/images/polygon_main-page.png" alt="" />
                             <img className="rectangle_main-page" src="/images/rectangle_main-page.png" alt="" />
                             <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />

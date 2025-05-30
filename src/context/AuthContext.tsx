@@ -19,6 +19,7 @@ interface AuthContextValue {
     register: (d: any) => Promise<void>;
     logout: () => void;
     loading: boolean;
+    setUser: (user: User | null) => void;
 }
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }: any) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading, setUser }}>
             {children}
         </AuthContext.Provider>
     );

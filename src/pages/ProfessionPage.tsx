@@ -2,9 +2,11 @@ import { updateUserProfession } from '../api/users';
 import { useNavigate, useParams } from 'react-router-dom';
 import Panel from "../components/Panel";
 import { fetchProfessionDetail, type ProfessionDetail } from '../api/professions';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 export default function ProfessionPage() {
+    const auth = useContext(AuthContext)!;
     const { id } = useParams<{ id: string }>();
     const [profession, setProfession] = useState<ProfessionDetail | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -17,6 +19,7 @@ export default function ProfessionPage() {
         setIsSubmitting(true);
         try {
             await updateUserProfession(profession.id);
+            auth.setUser({ ...auth.user, profession: profession.name });
             navigate(`/chosen-profession`);
         } catch (err) {
             console.error('Ошибка выбора профессии', err);

@@ -24,7 +24,7 @@ export default function Panel() {
             title: 'Личный кабинет',
             items: [
                 { text: 'Мое направление', path: '/direction', className: 'panel_ul_sections-item' },
-                { text: 'Пройденные курсы', path: '/completed-disciplines', className: 'panel_ul_sections-item' }
+                { text: 'Пройденные курсы', path: '/completed-courses', className: 'panel_ul_sections-item' }
             ],
             position: { top: '150px', left: '120px' }
         },

@@ -1334,8 +1334,7 @@ a {
 
 .main-page_content_container_info_student_container h2 {
     font-weight: 400;
-    font-size: 24px;
-    margin-top: 5px;
+    font-size: 28px;
 }
 
 .main-page_content_container_info_student h3 {
@@ -1392,7 +1391,7 @@ a {
     margin-top: 64px;
     margin-left: 108px;
     width: 100%;
-    height: calc(100% - 125px);
+    height: calc(100%-125px);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -1450,7 +1449,7 @@ a {
     display: block;
 }
 
-.dropdown-menu-semesters {
+.dropdown-menu {
     list-style: none;
     width: 381px;
     height: 336px;
@@ -1461,9 +1460,8 @@ a {
     position: absolute;
 }
 
-.dropdown-menu-semesters li :hover {
+.dropdown-menu li :hover {
     background-color: #F1F1F1;
-    cursor: pointer;
 }
 
 .dropdown-item {
@@ -1475,9 +1473,6 @@ a {
     padding: 6px 0px 6px 16px;
     font-weight: 500;
     font-size: 18px;
-}
-
-.dropdown-item:hover {
     cursor: pointer;
 }
 
@@ -1489,7 +1484,7 @@ a {
     display: none;
 }
 
-.dropdown-menu-semesters.menu-active {
+.dropdown-menu.menu-active {
     display: block;
 }
 
@@ -1503,7 +1498,7 @@ a {
     padding: 0px;
 }
 
-.completed-courses_container-item {
+.completed-courses_container li {
     width: 497px;
     height: 180px;
     background-color: #F1ECFF;
@@ -1511,12 +1506,6 @@ a {
     border-radius: 15px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.14);
     padding: 22px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.completed-courses_container li:hover {
-    cursor: pointer;
 }
 
 .definite-course {
@@ -1759,7 +1748,7 @@ a {
     margin-top: 64px;
     margin-left: 108px;
     width: 100%;
-    height: calc(100% - 125px);
+    height: calc(100%-125px);
 }
 
 .courses-title {
@@ -1860,10 +1849,9 @@ a {
 
 .subjects-container {
     height: calc(746px - 89px - 30px); /* Высота блока минус заголовок и отступы */
-    width: calc(100%);
+    width: calc(100%+6px);
     overflow-y: auto;
-    padding-left: 13px;
-    padding-right: 9px;
+    padding: 0 13px;
     box-sizing: border-box;
     position: absolute;
     top: 89px;
@@ -1884,7 +1872,7 @@ a {
 }
 
 .subject-item {
-    width: 358px;
+    width: 364px;
     height: 60px;
     border-radius: 8px;
     margin-bottom: 21px;
@@ -1894,8 +1882,6 @@ a {
     box-sizing: border-box;
     cursor: pointer;
     transition: transform 0.2s;
-    text-decoration: none;
-    color: inherit;
 }
 
 .subject:hover {
@@ -2259,33 +2245,21 @@ a {
 .dropdown-menu {
     width: 603px;
     list-style: none;
-    background-color: #FFFFFF;
+    background: #ffffff;
     border: 1px solid #C0C0C0;
     border-radius: 5px;
     box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.06);
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
     z-index: 2;
-    display: none;
-    position: absolute;
-    padding: 0;
 }
 
 .dropdown-menu li {
     padding: 12px 19px;
     font-size: 16px;
     color: #333333;
-    white-space: nowrap;
-}
-
-.dropdown-menu li:hover {
-    background-color: #F1F1F1;
     cursor: pointer;
-}
-
-
-.dropdown-menu.menu-active {
-    display: block;
+    white-space: nowrap;
 }
 
 .img_dropdown-active {
@@ -2359,4 +2333,200 @@ a {
     justify-content: center;
     border: none;
     cursor: pointer;
+}
+
+.course-ratings {
+  font-size: 35px;
+  font-weight: 500;
+  margin-left: 108px;
+  margin-top: 72px;
+  margin-bottom: 53px;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 17px;
+  margin-left: 108px;
+}
+
+.nav-tab {
+  width: 182px;
+  height: 42px;
+  border-radius: 4px;
+  border: 1px solid #E9E9E9;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+}
+
+.nav-tab.active {
+  background-color: #F4F4F4;
+}
+.nav-tab:hover {
+  background-color: #F4F4F4;
+  cursor: pointer; 
+}
+
+.search-block {
+  margin-left: 108px;
+  margin-top: 12px;
+  width: 381px;
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid #D2D2D2;
+  box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  margin-left: 18px;
+  height: 20px;
+  width: 20px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #B8B8B8;
+  margin-left: 11px;
+  position: relative;
+  top: 0px;
+}
+
+.courses {
+  margin-left: 108px;
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 26px 35px;
+  max-width: 1700px;
+}
+
+.course-block {
+  background-color: #F1ECFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
+  width: 100%; 
+
+}
+
+.course-block.small,
+.course-block.large {
+  height: 111px;
+}
+
+.course-text {
+  margin-left: 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-title {
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 746px;
+  line-height: 24px;
+}
+
+.course-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  max-width: 695px;
+}
+.course-block.small .course-subtitle {
+  margin-top: 16px;
+}
+
+.course-rating {
+  width: 50px;
+  height: 26px;
+  background-color: #FFFbcc;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
+}
+
+.pagination {
+  width: 733px;
+  height: 40px;
+  margin: 111px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 60px;
+}
+
+.page-btn, .page-number, .dots {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #E9E9E9;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn {
+  width: 100px;
+  gap: 4px;
+}
+
+.page-btn:not(.disabled):hover {
+  background-color: #F4F4F4;
+  cursor: pointer;
+}
+
+.page-number {
+  width: 40px;
+}
+
+.dots {
+  width: 25px;
+}
+
+.page-number.active {
+  background-color: #D9D9D9;
+  border-color: #D9D9D9;
+  font-weight: 500;
+}
+
+.page-number:not(.active):hover {
+  background-color: #F4F4F4;
+  cursor: pointer;
+}
+
+.page-btn.disabled {
+  color: #B0B0B0;
+  border-color: #F0F0F0;
+  cursor: not-allowed;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
 }

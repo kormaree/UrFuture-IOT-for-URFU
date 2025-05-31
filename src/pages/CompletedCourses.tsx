@@ -19,7 +19,7 @@ export default function CompletedCourses() {
           </button>
           <ul 
             id="dropdown-menu-1"
-            className="dropdown-menu"
+            className="dropdown-menu-semesters"
           >
             <li><button className="dropdown-item">1 семестр</button></li>
             <li><button className="dropdown-item">2 семестр</button></li>

@@ -44,7 +44,7 @@ export default function Home() {
                         <img src="/images/chevron-right.png" alt="Далее" />
                     </button>
                 </a>
-                <Link to="/completed-disciplines" className="main-page_content_container_discription_buttons_item">
+                <Link to="/completed-courses" className="main-page_content_container_discription_buttons_item">
                     <button className="main-page_content_container_discription_buttons_item_container">
                         <h2>Пройденные курсы</h2>
                         <img src="/images/chevron-right.png" alt="Далее" />

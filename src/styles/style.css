@@ -1334,7 +1334,8 @@ a {
 
 .main-page_content_container_info_student_container h2 {
     font-weight: 400;
-    font-size: 28px;
+    font-size: 24px;
+    margin-top: 5px;
 }
 
 .main-page_content_container_info_student h3 {
@@ -1391,7 +1392,7 @@ a {
     margin-top: 64px;
     margin-left: 108px;
     width: 100%;
-    height: calc(100%-125px);
+    height: calc(100% - 125px);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -1449,7 +1450,7 @@ a {
     display: block;
 }
 
-.dropdown-menu {
+.dropdown-menu-semesters {
     list-style: none;
     width: 381px;
     height: 336px;
@@ -1460,8 +1461,9 @@ a {
     position: absolute;
 }
 
-.dropdown-menu li :hover {
+.dropdown-menu-semesters li :hover {
     background-color: #F1F1F1;
+    cursor: pointer;
 }
 
 .dropdown-item {
@@ -1473,6 +1475,9 @@ a {
     padding: 6px 0px 6px 16px;
     font-weight: 500;
     font-size: 18px;
+}
+
+.dropdown-item:hover {
     cursor: pointer;
 }
 
@@ -1484,7 +1489,7 @@ a {
     display: none;
 }
 
-.dropdown-menu.menu-active {
+.dropdown-menu-semesters.menu-active {
     display: block;
 }
 
@@ -1498,7 +1503,7 @@ a {
     padding: 0px;
 }
 
-.completed-courses_container li {
+.completed-courses_container-item {
     width: 497px;
     height: 180px;
     background-color: #F1ECFF;
@@ -1506,6 +1511,12 @@ a {
     border-radius: 15px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.14);
     padding: 22px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.completed-courses_container li:hover {
+    cursor: pointer;
 }
 
 .definite-course {
@@ -1748,7 +1759,7 @@ a {
     margin-top: 64px;
     margin-left: 108px;
     width: 100%;
-    height: calc(100%-125px);
+    height: calc(100% - 125px);
 }
 
 .courses-title {
@@ -1849,9 +1860,10 @@ a {
 
 .subjects-container {
     height: calc(746px - 89px - 30px); /* Высота блока минус заголовок и отступы */
-    width: calc(100%+6px);
+    width: calc(100%);
     overflow-y: auto;
-    padding: 0 13px;
+    padding-left: 13px;
+    padding-right: 9px;
     box-sizing: border-box;
     position: absolute;
     top: 89px;
@@ -1872,7 +1884,7 @@ a {
 }
 
 .subject-item {
-    width: 364px;
+    width: 358px;
     height: 60px;
     border-radius: 8px;
     margin-bottom: 21px;
@@ -1882,6 +1894,8 @@ a {
     box-sizing: border-box;
     cursor: pointer;
     transition: transform 0.2s;
+    text-decoration: none;
+    color: inherit;
 }
 
 .subject:hover {
@@ -2245,21 +2259,33 @@ a {
 .dropdown-menu {
     width: 603px;
     list-style: none;
-    background: #ffffff;
+    background-color: #FFFFFF;
     border: 1px solid #C0C0C0;
     border-radius: 5px;
     box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.06);
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     z-index: 2;
+    display: none;
+    position: absolute;
+    padding: 0;
 }
 
 .dropdown-menu li {
     padding: 12px 19px;
     font-size: 16px;
     color: #333333;
-    cursor: pointer;
     white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+    background-color: #F1F1F1;
+    cursor: pointer;
+}
+
+
+.dropdown-menu.menu-active {
+    display: block;
 }
 
 .img_dropdown-active {

@@ -1,5 +1,6 @@
 import Panel from "../components/Panel";
 import DropdownComponent from "../components/DropdownToggle";
+import { Link } from "react-router-dom";
 
 export default function CompletedCourses() {
   return (
@@ -33,7 +34,7 @@ export default function CompletedCourses() {
         </div>
         <ul className="completed-courses_container">
           {Array.from({ length: 10 }).map((_, index) => (
-            <li key={index}>Ляляля</li>
+            <Link to="/definite-course" className="completed-courses_container-item"><li key={index}>Ляляля</li></Link>
           ))}
         </ul>
       </div>

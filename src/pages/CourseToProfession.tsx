@@ -1,4 +1,5 @@
 import Panel from "../components/Panel";
+import { Link } from "react-router-dom";
 
 export default function ChosenProfession() {
 
@@ -18,9 +19,9 @@ export default function ChosenProfession() {
                 <h3 className="semester-title">Семестр 1</h3>
                 <div className="semester-divider"></div>
                 <div className="subjects-container">
-                    <div className="subject-item" data-category="humanities">
+                    <Link to="/definite-course" className="subject-item" data-category="humanities">
                         <p className="subject-name">Философия</p>
-                    </div>
+                    </Link>
                     <div className="subject-item" data-category="mathematics">
                         <p className="subject-name">Векторный анализ</p>
                     </div>

@@ -2556,3 +2556,14 @@ a {
   width: 20px;
   height: 20px;
 }
+
+.registration-error-message {
+    margin-bottom: 10px;
+    color: #ff6b6b;
+}
+
+.choosing-direction-error-message {
+    color: #ff6b6b;
+    margin-top: 30px;
+    margin-bottom: -50px;
+}

@@ -10,6 +10,7 @@ export default function ChoosingDirection() {
     const [loading, setLoading] = useState<boolean>(true);
     const [selectedDirection, setSelectedDirection] = useState<string>('');
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ export default function ChoosingDirection() {
 
     const handleContinue = async () => {
         if (!selectedDirection) {
+            setError('Выберите направление');
             return;
         }
         setIsSubmitting(true);
@@ -45,7 +47,15 @@ export default function ChoosingDirection() {
             await auth.register({ ...formData, direction: selectedDirection });
             navigate('/home');
         } catch (err: any) {
-            console.error(err);
+            if (err.response?.data?.email) {
+                setError('Пользователь с таким email уже зарегистрирован');
+            } 
+            else if (err.response.status >= 500) {
+                setError('Внутренняя ошибка сервера, повторите позже');
+            }
+            else {
+                setError(err.message || 'Ошибка регистрации');
+            }
         } finally {
             setIsSubmitting(false);
         }
@@ -77,6 +87,8 @@ export default function ChoosingDirection() {
                             ))}
                         </ul>
                     </div>
+                        {error && <div className="choosing-direction-error-message">{error}</div>}
+
                         <button
                           type="button"
                           className="choosing-direction_container_continue"

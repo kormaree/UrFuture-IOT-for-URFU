@@ -17,10 +17,15 @@ export default function Register(){
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
+        setError('');
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (form.password.length < 8) {
+            setError('Пароль должен содержать минимум 8 символов');
+            return;
+        }
         if (form.password !== form.passwordConfirm) {
             setError('Пароли не совпадают');
             return;
@@ -44,6 +49,7 @@ export default function Register(){
                             onChange={handleChange}
                             className="registration-container_name-and-lastname_lastname_input"
                             placeholder="Введите фамилию"
+                            required
                         />
                     </div>
                     <div className="registration-container_name-and-lastname_name">
@@ -55,6 +61,7 @@ export default function Register(){
                             onChange={handleChange}
                             className="registration-container_name-and-lastname_name_input"
                             placeholder="Введите имя"
+                            required
                         />
                     </div>
                 </div>
@@ -68,6 +75,7 @@ export default function Register(){
                         onChange={handleChange}
                         className="registration-container_patronymic_input"
                         placeholder="Введите отчество"
+                        required
                     />
                 </div>
 
@@ -121,7 +129,7 @@ export default function Register(){
                     </div>
                 </div>
 
-                {error && <div className="error-message">{error}</div>}
+                {error && <div className="registration-error-message">{error}</div>}
 
                 <button type="submit" className="registration-container_enter">
                     Регистрация

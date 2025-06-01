@@ -14,6 +14,8 @@ export default function Register(){
         passwordConfirm: '',
     });
     const [error, setError] = useState<string>('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -88,6 +90,7 @@ export default function Register(){
                         onChange={handleChange}
                         className="registration-container_email_input"
                         placeholder="Введите email"
+                        required
                     />
                 </div>
 
@@ -95,17 +98,19 @@ export default function Register(){
                     <h3>Пароль*</h3>
                     <div className="registration-container_password_input">
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             name="password"
                             value={form.password}
                             onChange={handleChange}
                             className="registration-container_password_input_field"
                             placeholder="Введите пароль"
+                            required
                         />
                         <img
                             className="registration-container_password_input_not-view"
-                            src="/images/hide-password.png"
+                            src={showPassword ? "/images/show-password.png" : "/images/hide-password.png"}
                             alt="Спрятать пароль"
+                            onClick={() => setShowPassword(!showPassword)}
                         />
                     </div>
                 </div>
@@ -114,17 +119,19 @@ export default function Register(){
                     <h3>Повторите пароль*</h3>
                     <div className="registration-container_repeat-password_input">
                         <input
-                            type="password"
+                            type={showPasswordConfirm ? "text" : "password"}
                             name="passwordConfirm"
                             value={form.passwordConfirm}
                             onChange={handleChange}
                             className="registration-container_repeat-password_input_field"
                             placeholder="Введите пароль"
+                            required
                         />
                         <img
                             className="registration-container_password_input_not-view"
-                            src="/images/show-password.png"
+                            src={showPasswordConfirm ? "/images/show-password.png" : "/images/hide-password.png"}
                             alt="Спрятать пароль"
+                            onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
                         />
                     </div>
                 </div>

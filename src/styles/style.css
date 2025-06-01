@@ -2558,6 +2558,7 @@ a {
 }
 
 .registration-error-message {
+    margin-top: -20px;
     margin-bottom: 10px;
     color: #ff6b6b;
 }

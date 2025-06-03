@@ -32,7 +32,7 @@ export default function Direction() {
                         <div className="my-direction_student_info_container">
                             <div className="my-direction_student_info_container_group">
                                 <h3>Группа:</h3>
-                                <h4>РИ-222222</h4>
+                                <h4>{user?.academic_group || '—'}</h4>
                             </div>
                             <div className="my-direction_student_info_container_email">
                                 <h3>Электронная почта:</h3>

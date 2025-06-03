@@ -958,6 +958,7 @@ a {
     font-weight: 400;
     margin-top: 62px;
     margin-bottom: 65px;
+    white-space: pre-wrap;
 }
 
 .my-direction_info-main-persons {
@@ -1143,6 +1144,10 @@ a {
     overflow-y: auto;
     margin-top: 15px;
     margin-bottom: 0;
+}
+
+input#elastic-directions {
+    width: 100%;
 }
 
 .elastic-directions::-webkit-scrollbar {

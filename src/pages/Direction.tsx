@@ -1,6 +1,19 @@
+import { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import Panel from "../components/Panel";
+import { fetchDirectionDetail, type Direction } from '../api/directions';
 
 export default function Direction() {
+    const auth = useContext(AuthContext)!;
+    const user = auth.user;
+
+    const [directionDetail, setDirectionDetail] = useState<Direction>();
+
+    useEffect(() => {
+        fetchDirectionDetail(user.direction_id!)
+            .then(data => setDirectionDetail(data))
+            .catch(err => console.error(err));
+    }, [user]);
 
     return (
         <>
@@ -15,7 +28,7 @@ export default function Direction() {
                         alt="Иконка" 
                     />
                     <div className="my-direction_student_info">
-                        <h2>Иванов Иван Васильевич</h2>
+                        <h2>{user?.last_name} {user?.first_name} {user?.patronymic}</h2>
                         <div className="my-direction_student_info_container">
                             <div className="my-direction_student_info_container_group">
                                 <h3>Группа:</h3>
@@ -23,17 +36,21 @@ export default function Direction() {
                             </div>
                             <div className="my-direction_student_info_container_email">
                                 <h3>Электронная почта:</h3>
-                                <h4>Ivanov.Ivan@gmail.com</h4>
+                                <h4>{user.email}</h4>
                             </div>
                             <div className="my-direction_student_info_container_direction">
                                 <h3>Мое направление:</h3>
-                                <h4>Программная инженерия</h4>
+                                <h4>
+                                  {user.direction}
+                                </h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <span className="my-direction_info-of-direction">
-                    Программная инженерия — это флагманская программа бакалавриата ИРИТ-РТФ, нацеленная на подготовку универсальных ИТ-специалистов. Программный инженер —  многофункциональный специалист, который решает задачи на всех стадиях разработки программного обеспечения. Образовательная программа охватывает базовые языки программирования (C#, Java, C++ и Python), а также предлагает уникальные индивидуальные образовательные траектории. Студенты могут ознакомиться с различными аспектами профессии и выбрать наиболее подходящий трек подготовки, что позволяет им получить глубокие знания и навыки в области программной инженерии.
+                    {directionDetail
+                      ? directionDetail.description
+                      : 'Описание загружается...'}
                 </span>
                 <div className="my-direction_info-main-persons">
                     <div className="my-direction_info-main-persons_container">

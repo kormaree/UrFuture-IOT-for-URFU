@@ -81,7 +81,7 @@ export default function ChoosingDirection() {
                                       data-id={dir.id.toString()}
                                       onClick={() => setSelectedDirection(dir.id.toString())}
                                     >
-                                      {dir.name}
+                                      {dir.name} {dir.name_text}
                                     </button>
                                 </li>
                             ))}

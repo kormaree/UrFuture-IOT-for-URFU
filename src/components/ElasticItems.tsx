@@ -12,13 +12,13 @@ export default function ElasticSearch({ onSelect }: ElasticSearchProps) {
         if (!inputEl) return;
 
         const handler = () => {
-            const value = inputEl.value.trim();
+            const value = inputEl.value.trim().toLowerCase();
             onSelect(value);
 
             const elasticItems = document.querySelectorAll('.elastic-directions li');
             elasticItems.forEach((elem: Element) => {
-                const shouldHide =
-                value !== '' && (elem as HTMLElement).innerText.search(value) === -1;
+                const text = (elem as HTMLElement).innerText.toLowerCase();
+                const shouldHide = value !== '' && text.indexOf(value) === -1;
                 elem.classList.toggle('hide', shouldHide);
             });
         };

@@ -10,6 +10,7 @@ export interface User {
     email: string;
     profession: string | null;
     direction: string | null;
+    direction_id: number | null;
     academic_group: string | null;
 }
 

@@ -14,6 +14,7 @@ import ChosenProfession from './pages/ChosenProfession'
 import ChoosingDirection from './pages/ChoosingDirection'
 import ProtectedRoute from './components/ProtectedRoute';
 import CompletedCourses from './pages/CompletedCourses';
+import EditProfile from './pages/EditProfile';
 
 function RootRedirect() {
     const auth = useContext(AuthContext)!;
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path="/course-to-profession" element={<CourseToProfession />} />
                 <Route path="/completed-courses" element={<CompletedCourses />} />
                 <Route path="/chosen-profession" element={<ChosenProfession />} />
+                <Route path="/edit-profile" element={<EditProfile />} />
             </Route>
             
             <Route path="*" element={<h2>Не найдено</h2>} />

@@ -110,7 +110,7 @@ export default function Panel() {
                 })}
             </ul>
             <ul className="panel_ul_icon">
-                <li className="profile-button" onClick={() => navigate('#')}>
+                <li className="profile-button" onClick={() => navigate('/edit-profile')}>
                     <span className="button-text">Профиль</span>
                     <img
                         src="/images/icon-panel.svg"

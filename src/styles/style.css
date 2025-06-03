@@ -67,6 +67,7 @@ a {
     align-items: center;
     text-decoration: none;
     padding: 14px 0px 15px 23px;
+    cursor: pointer;
 }
 
 .button-text {
@@ -2572,4 +2573,192 @@ input#elastic-directions {
     color: #ff6b6b;
     margin-top: 30px;
     margin-bottom: -50px;
+}
+
+.profile-page {
+  padding-left: 107px;
+}
+
+.page-title-2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 62px;
+}
+
+.page-description {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 26px;
+  width: 619px;
+  line-height: 24px;
+}
+
+.input-block {
+  margin-top: 83px;
+  width: 568px;
+}
+
+.input-block + .input-block {
+  margin-top: 29px;
+}
+
+.input-block label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  border: 2px solid rgba(204, 204, 204, 0.5);
+  border-radius: 5px;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 27px;
+  display: flex;
+  align-items: center;
+}
+
+.save-button {
+  margin-top: 40px;
+  width: 174px;
+  height: 53px;
+  background-color: #3D3E85;
+  color: white;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-block {
+  margin-top: 87px;
+  width: 568px;
+}
+
+.password-block + .password-block {
+  margin-top: 29px;
+}
+
+.password-block label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.password-field {
+  width: 100%;
+  border: 2px solid rgba(204, 204, 204, 0.5);
+  border-radius: 5px;
+  height: 56px;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.password-field::placeholder {
+  color: #BFBFBF;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  margin-top: 88px;
+  margin-bottom: 77px;
+  padding-bottom: 77px;
+  cursor: pointer;
+}
+
+.logout img {
+  margin-left: -6px; 
+  margin-top: 1px;
+}
+
+.logout span {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3D3E85;
+  margin-left: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  width: 774px;
+  height: 354px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+.modal-text {
+  font-size: 22px;
+  font-weight: 500;
+  position: absolute;
+  top: 205px;
+  left: 66px;
+  margin: 0;
+}
+
+.modal-buttons {
+  position: absolute;
+  top: 266px; 
+  left: 67px;
+  display: flex;
+}
+
+.modal-ok {
+  width: 90px;
+  height: 41px;
+  background-color: #44CC68;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  width: 142px;
+  height: 41px;
+  background-color: white;
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #AAAAAA;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 19px;
+  right: 21px; 
+  cursor: pointer;
 }

@@ -1,8 +1,46 @@
 import Panel from "../components/Panel";
 import DropdownComponent from "../components/DropdownToggle";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import '../styles/style.css';
+import { useState, useEffect } from 'react';
+import { fetchCourses, type Course } from '../api/courses';
+import CourseCard from '../components/CourseCard';
+import Pagination from '../components/Pagination';
+
+const semesters = [
+    '1 семестр',
+    '2 семестр',
+    '3 семестр',
+    '4 семестр',
+    '5 семестр',
+    '6 семестр',
+    '7 семестр',
+    '8 семестр'
+];
 
 export default function CompletedCourses() {
+    const [semester, setSemester] = useState<number | null>(null);
+    const [courses, setCourses] = useState<Course[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState<number>(1);
+    const [pageSize] = useState<number>(15);
+
+    useEffect(() => {
+      setCurrentPage(1);
+    }, [semester]);
+
+    useEffect(() => {
+        setLoading(true);
+        fetchCourses(currentPage, pageSize, semester || undefined)
+            .then(data => {
+                setCourses(data.results);
+                setTotalPages(Math.ceil(data.count / pageSize));
+            })
+            .finally(() => setLoading(false));
+    }, [semester, currentPage, pageSize]);
+    const navigate = useNavigate();
+
   return (
     <>
       <Panel />
@@ -22,21 +60,36 @@ export default function CompletedCourses() {
             id="dropdown-menu-1"
             className="dropdown-menu-semesters"
           >
-            <li><button className="dropdown-item">1 семестр</button></li>
-            <li><button className="dropdown-item">2 семестр</button></li>
-            <li><button className="dropdown-item">3 семестр</button></li>
-            <li><button className="dropdown-item">4 семестр</button></li>
-            <li><button className="dropdown-item">5 семестр</button></li>
-            <li><button className="dropdown-item">6 семестр</button></li>
-            <li><button className="dropdown-item">7 семестр</button></li>
-            <li><button className="dropdown-item">8 семестр</button></li>
+            <li className="dropdown-item" onClick={() => setSemester(null)}>Все курсы</li>
+                    {semesters.map(cat => (
+                        <li className="dropdown-item" key={cat} onClick={() => { 
+                          const semesterNumber = Number(cat.substring(0, 1));
+                          setSemester(semesterNumber);}}>
+                            {cat}
+                        </li>
+                    ))}
           </ul>
         </div>
         <ul className="completed-courses_container">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <Link to="/definite-course" className="completed-courses_container-item"><li key={index}>Ляляля</li></Link>
-          ))}
+          {loading
+            ? <p>Загрузка…</p>
+            : courses.length === 0
+                ? <p>Курсы не найдены</p>
+                : courses.map(cour => (
+                    <CourseCard
+                        key={cour.id}
+                        name={cour.name}
+                        onClick={() => navigate(`/definite-course`)}
+                    />
+                ))
+            }
         </ul>
+
+        <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+        />
       </div>
     </>
   );

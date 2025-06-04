@@ -1467,12 +1467,8 @@ input#elastic-directions {
     position: absolute;
 }
 
-.dropdown-menu-semesters li :hover {
-    background-color: #F1F1F1;
-    cursor: pointer;
-}
 
-.dropdown-item {
+.dropdown-menu-semesters li {
     border: none;
     background-color: #FFFFFF;
     width: 100%;
@@ -1484,6 +1480,7 @@ input#elastic-directions {
 }
 
 .dropdown-item:hover {
+    background-color: #F1F1F1;
     cursor: pointer;
 }
 
@@ -1500,7 +1497,7 @@ input#elastic-directions {
 }
 
 .completed-courses_container {
-    width: 1579px;
+    width: auto;
     height: auto;
     margin-top: 36px;
     display: grid;
@@ -1521,7 +1518,7 @@ input#elastic-directions {
     color: inherit;
 }
 
-.completed-courses_container li:hover {
+.completed-courses_container-item:hover {
     cursor: pointer;
 }
 
@@ -2503,7 +2500,9 @@ input#elastic-directions {
 .pagination {
   width: 733px;
   height: 40px;
-  margin: 111px auto;
+  margin-top: 111px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;

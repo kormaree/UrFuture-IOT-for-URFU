@@ -33,7 +33,6 @@ export default function EditProfile() {
         email: email,
       })
         .catch(err => {
-          console.error(err);
           const data = err.response?.data;
           if (data) {
             const messages = Object.values(data).flat().join(' ');
@@ -60,7 +59,6 @@ export default function EditProfile() {
         new_password_confirm: newPasswordConfirm,
       })
         .catch(err => {
-          console.error(err);
           const data = err.response?.data;
           if (data) {
             const messages = Object.values(data).flat().join(' ');

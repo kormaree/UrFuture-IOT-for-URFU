@@ -11,8 +11,7 @@ export default function Direction() {
 
     useEffect(() => {
         fetchDirectionDetail(user.direction_id!)
-            .then(data => setDirectionDetail(data))
-            .catch(err => console.error(err));
+            .then(data => setDirectionDetail(data));
     }, [user]);
 
     return (
@@ -57,7 +56,7 @@ export default function Direction() {
                         <img src="/images/Obabkov.png" alt="Фото Ильи Николаевича" />
                         <div className="my-direction_info-main-persons_container_rop">
                             <h2>Обабков Илья Николаевич</h2>
-                            <h3>Руководитель образовательной программы</h3>
+                            <h3>Ректор</h3>
                             <div className="my-direction_info-main-persons_container_rop_info">
                                 <div className="my-direction_info-main-persons_container_rop_info_item">
                                     <h4>Адрес:</h4>
@@ -79,22 +78,26 @@ export default function Direction() {
                         </div>
                     </div>
                     <div className="my-direction_info-main-persons_container">
-                        <img src="/images/Kolmagorceva.png" alt="Фото Ирины Колмагорцевой" />
-                        <div className="my-direction_info-main-persons_container_tutor">
-                            <h2>Колмогорцева Ирина</h2>
-                            <h3>Тьютор программной инженерии</h3>
-                            <div className="my-direction_info-main-persons_container_tutor_info">
-                                <div className="my-direction_info-main-persons_container_tutor_info_item">
+                        <img src="/images/Obabkov.png" alt="Фото Ильи Николаевича" />
+                        <div className="my-direction_info-main-persons_container_rop">
+                            <h2>Обабков Илья Николаевич</h2>
+                            <h3>Директор</h3>
+                            <div className="my-direction_info-main-persons_container_rop_info">
+                                <div className="my-direction_info-main-persons_container_rop_info_item">
                                     <h4>Адрес:</h4>
                                     <p>ул., Мира, 32</p>
                                 </div>
-                                <div className="my-direction_info-main-persons_container_tutor_info_item">
+                                <div className="my-direction_info-main-persons_container_rop_info_item">
                                     <h4>Аудитория:</h4>
-                                    <p>Р-138а</p>
+                                    <p>Р-332</p>
                                 </div>
-                                <div className="my-direction_info-main-persons_container_tutor_info_item">
+                                <div className="my-direction_info-main-persons_container_rop_info_item">
+                                    <h4>Телефон:</h4>
+                                    <p>(343) 375-97-00</p>
+                                </div>
+                                <div className="my-direction_info-main-persons_container_rop_info_item">
                                     <h4>Email:</h4>
-                                    <p>i.s.kolmogortseva@urfu.ru</p>
+                                    <p>i.n.obabkov@urfu.ru</p>
                                 </div>
                             </div>
                         </div>

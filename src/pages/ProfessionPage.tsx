@@ -21,9 +21,8 @@ export default function ProfessionPage() {
             await updateUserProfession(profession.id);
             auth.setUser({ ...auth.user, profession: profession.name });
             navigate(`/chosen-profession`);
-        } catch (err) {
-            console.error('Ошибка выбора профессии', err);
-        } finally {
+        } 
+        finally {
             setIsSubmitting(false);
         }
     };

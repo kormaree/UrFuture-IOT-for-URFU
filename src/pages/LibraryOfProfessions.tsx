@@ -4,6 +4,7 @@ import { fetchProfessions, type Profession } from '../api/professions';
 import ProfessionCard from '../components/ProfessionCard';
 import Panel from '../components/Panel';
 import DropdownComponent from '../components/DropdownToggle';
+import Pagination from '../components/Pagination';
 import '../styles/style.css';
 
 const categories = [
@@ -24,17 +25,29 @@ export default function LibraryOfProfessions() {
     const [category, setCategory] = useState<string>('');
     const [professions, setProfessions] = useState<Profession[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState<number>(1);
+    const [pageSize] = useState<number>(20);
+
+    useEffect(() => {
+      setCurrentPage(1);
+    }, [category]);
+
     useEffect(() => {
         setLoading(true);
-        fetchProfessions(category || undefined)
-            .then(setProfessions)
+        fetchProfessions(currentPage, pageSize, category || undefined)
+            .then(data => {
+                setProfessions(data.results);
+                setTotalPages(Math.ceil(data.count / pageSize));
+            })
             .finally(() => setLoading(false));
-    }, [category]);
+    }, [category, currentPage, pageSize]);
     const navigate = useNavigate();
 
+    
+
     return (
-        <div className="library-page">
-        
+    <div className="library-page">
         <Panel />
 
         <div className="profession-library">
@@ -87,6 +100,12 @@ export default function LibraryOfProfessions() {
                 }
             </div>
         </div>
-        </div>
+
+        <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+        />
+    </div>
     );
 }

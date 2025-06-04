@@ -1,5 +1,12 @@
 import api from './client';
 
+export interface PaginatedResponse<T> {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T[];
+}
+
 export interface Profession {
     id: number;
     name: string;
@@ -16,9 +23,16 @@ export interface ProfessionDetail {
     tags: string[];
 }
 
-export async function fetchProfessions(category?: string): Promise<Profession[]> {
-    const params = category ? { category } : {};
-    const response = await api.get<Profession[]>('/professions/', { params });
+
+export async function fetchProfessions(
+    page: number = 1,
+    pageSize?: number,
+    category?: string
+): Promise<PaginatedResponse<Profession>> {
+    const params: Record<string, any> = { page };
+    if (pageSize) params.page_size = pageSize;
+    if (category) params.category = category;
+    const response = await api.get<PaginatedResponse<Profession>>('/professions/', { params });
     return response.data;
 }
 

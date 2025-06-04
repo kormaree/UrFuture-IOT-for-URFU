@@ -15,6 +15,7 @@ import ChoosingDirection from './pages/ChoosingDirection'
 import ProtectedRoute from './components/ProtectedRoute';
 import CompletedCourses from './pages/CompletedCourses';
 import EditProfile from './pages/EditProfile';
+import NotFoundPage from './pages/NotFoundPage';
 
 function RootRedirect() {
     const auth = useContext(AuthContext)!;
@@ -47,7 +48,7 @@ export default function App() {
                 <Route path="/edit-profile" element={<EditProfile />} />
             </Route>
             
-            <Route path="*" element={<h2>Не найдено</h2>} />
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )
 }

@@ -11,6 +11,7 @@ export default function ProfessionPage() {
     const [profession, setProfession] = useState<ProfessionDetail | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const navigate = useNavigate();
 
@@ -30,9 +31,22 @@ export default function ProfessionPage() {
     useEffect(() => {
         if (!id) return;
         setLoading(true);
+        setError(null);
         fetchProfessionDetail(Number(id))
-            .then(data => setProfession(data))
-            .finally(() => setLoading(false));
+            .then(data => {
+                setProfession(data);
+            })
+            .catch(err => {
+                if (err.response?.status === 404) {
+                    setLoading(false);
+                    setError('Профессия не найдена');
+                } else {
+                    setError('Ошибка при загрузке профессии');
+                }
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [id]);
 
     return (
@@ -47,12 +61,12 @@ export default function ProfessionPage() {
                         className="back-arrow" 
                         onClick={() => navigate(-1)}
                     />
-                    {loading || !profession ? (
+                    {loading ? (
                         <p>Загрузка...</p>
+                    ) : error ? (
+                        <p className="profession-error">{error}</p>
                     ) : (
-                        <>
-                            <h1 className="profession-title">{profession.name}</h1>
-                        </>
+                        <h1 className="profession-title">{profession!.name}</h1>
                     )}
                     <button 
                         className="choose-profession-btn"
@@ -63,9 +77,11 @@ export default function ProfessionPage() {
                     </button>
                 </div>
                 
-                {loading || !profession ? (
-                    <p>Загрузка...</p>
-                ) : (
+                {loading ? (
+                    <p>Загрузка...</p> 
+                ) : (error || !profession) ? (
+                    <></>
+                ): (
                     <>
                         <div className="profession-description">
                             <p>{profession.description}</p>

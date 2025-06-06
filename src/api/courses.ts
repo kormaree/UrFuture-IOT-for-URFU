@@ -26,12 +26,14 @@ export interface CourseDetail {
 
 export async function fetchCourses(
     page: number = 1,
-    pageSize: number = 15,
-    semester?: number
+    pageSize: number = 9,
+    semester?: number,
+    discipline?: string
 ): Promise<PaginatedResponse<Course>> {
     const params: Record<string, any> = { page };
     if (pageSize) params.page_size = pageSize;
     if (semester) params.semester = semester;
+    if (discipline) params.discipline = discipline;
     const response = await api.get<PaginatedResponse<Course>>('/courses/', { params });
     return response.data;
 }

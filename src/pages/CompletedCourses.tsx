@@ -24,7 +24,7 @@ export default function CompletedCourses() {
     const [loading, setLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
-    const [pageSize] = useState<number>(15);
+    const [pageSize] = useState<number>(9);
 
     useEffect(() => {
       setCurrentPage(1);
@@ -77,8 +77,9 @@ export default function CompletedCourses() {
                 ? <p>Курсы не найдены</p>
                 : courses.map(cour => (
                     <CourseCard
-                        key={cour.id}
                         name={cour.name}
+                        semester={cour.semester}
+                        discipline={cour.discipline}
                         onClick={() => navigate(`/definite-course`)}
                     />
                 ))

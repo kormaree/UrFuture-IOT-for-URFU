@@ -1518,6 +1518,17 @@ input#elastic-directions {
     color: inherit;
 }
 
+.completed-courses_container-item h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.completed-courses_container-item div {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
 .completed-courses_container-item:hover {
     cursor: pointer;
 }

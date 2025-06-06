@@ -14,7 +14,7 @@ export default function CourseCard({
     return (
         <div className="completed-courses_container-item" onClick={onClick}>
             <h2>{name}</h2>
-            <div>{discipline}{" , "}{semester}</div>
+            <div>{discipline}{", "}{semester}{"семестр"}</div>
         </div>
     );
 }

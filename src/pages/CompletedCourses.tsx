@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { fetchCourses, type Course } from '../api/courses';
 import CourseCard from '../components/CourseCard';
 import Pagination from '../components/Pagination';
+import CourseCardSkeleton from "../components/skeletons/CourseCardSkeleton";
 
 const semesters = [
     '1 семестр',
@@ -72,7 +73,10 @@ export default function CompletedCourses() {
         </div>
         <ul className="completed-courses_container">
           {loading
-            ? <p>Загрузка…</p>
+            ?
+            Array(pageSize).fill(0).map((_, i) => (
+              <CourseCardSkeleton key={i} />
+            ))
             : courses.length === 0
                 ? <p>Курсы не найдены</p>
                 : courses.map(cour => (

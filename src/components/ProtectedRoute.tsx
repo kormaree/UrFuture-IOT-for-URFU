@@ -1,20 +1,21 @@
-import { useContext, type ReactNode } from 'react';
-import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import Loading from './Loading';
+import { useContext, ReactNode } from 'react'
+import { Navigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
-interface ProtectedRouteProps {
-    children: ReactNode;
-    loadingFallback?: ReactNode;
+interface Props {
+  children: ReactNode
 }
 
-export default function ProtectedRoute({
-    children,
-    loadingFallback,
-}: ProtectedRouteProps) {
-    const auth = useContext(AuthContext)!;
-    if (auth.loading) {
-        return <>{loadingFallback ?? <Loading />}</>;
-    }
-    return auth.user ? <>{children}</> : <Navigate to="/login" replace />;
+export default function ProtectedRoute({ children }: Props) {
+  const { loading, user } = useContext(AuthContext)!
+
+  if (loading) {
+    return <>{children}</>
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />
+  }
+
+  return <>{children}</>
 }

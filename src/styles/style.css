@@ -1469,6 +1469,7 @@ input#elastic-directions {
     padding: 10px 0px 0px 0px;
     display: none;
     position: absolute;
+    z-index: 2;
 }
 
 
@@ -2878,4 +2879,54 @@ input#elastic-directions {
     40% {
         transform: translateY(-8px);
     }
+}
+
+.course-card-skeleton {
+    width: 497px;
+    height: 180px;
+    background: #F7F7F7;
+    border-radius: 10px;
+    padding: 28px 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skeleton-line {
+    position: relative;
+    overflow: hidden;
+    background-color: #E9E9E9;
+    border-radius: 100px;
+    height: 12px;
+}
+
+.skeleton-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.skeleton-line.title {
+    width: 344px;
+    height: 12px;
+    margin-bottom: 18px;
+}
+
+.skeleton-line.text {
+    width: 307px;
+}
+
+.skeleton-line.text.short {
+    width: 277px;
+    margin-bottom: 68px;
 }

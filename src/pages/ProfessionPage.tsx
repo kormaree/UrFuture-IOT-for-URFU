@@ -50,7 +50,7 @@ export default function ProfessionPage() {
             });
     }, [id]);
 
-    if (isSubmitting) {
+    if (isSubmitting || loading) {
       return <Loading />
     }
 
@@ -66,9 +66,7 @@ export default function ProfessionPage() {
                         className="back-arrow" 
                         onClick={() => navigate(-1)}
                     />
-                    {loading ? (
-                        <p>Загрузка...</p>
-                    ) : error ? (
+                    {error ? (
                         <p className="profession-error">{error}</p>
                     ) : (
                         <h1 className="profession-title">{profession!.name}</h1>
@@ -82,10 +80,8 @@ export default function ProfessionPage() {
                     </button>
                 </div>
                 
-                {loading ? (
-                    <p>Загрузка...</p> 
-                ) : (error || !profession) ? (
-                    <></>
+                { (error || !profession) ? (
+                    <p className="profession-error">{error}</p>
                 ): (
                     <>
                         <div className="profession-description">

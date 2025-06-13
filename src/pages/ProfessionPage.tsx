@@ -1,6 +1,7 @@
 import { updateUserProfession } from '../api/users';
 import { useNavigate, useParams } from 'react-router-dom';
 import Panel from "../components/Panel";
+import Loading from "../components/Loading";
 import { fetchProfessionDetail, type ProfessionDetail } from '../api/professions';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
@@ -48,6 +49,10 @@ export default function ProfessionPage() {
                 setLoading(false);
             });
     }, [id]);
+
+    if (isSubmitting) {
+      return <Loading />
+    }
 
     return (
         <>

@@ -22,7 +22,7 @@ export default function ProfessionPage() {
             await updateUserProfession(profession.id);
             auth.setUser({ ...auth.user, profession: profession.name });
             navigate(`/chosen-profession`);
-        } 
+        }
         finally {
             setIsSubmitting(false);
         }

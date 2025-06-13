@@ -16,11 +16,12 @@ import ProtectedRoute from './components/ProtectedRoute';
 import CompletedCourses from './pages/CompletedCourses';
 import EditProfile from './pages/EditProfile';
 import NotFoundPage from './pages/NotFoundPage';
+import Loading from './components/Loading';
 
 function RootRedirect() {
     const auth = useContext(AuthContext)!;
     if (auth.loading) {
-        return <div>Загрузка...</div>;
+        return <Loading />;
     }
     return auth.user
         ? <Navigate to="/home" replace />

@@ -94,10 +94,6 @@ export default function EditProfile() {
         <Panel />
         <div className="profile-page">
             <h1 className="page-title-2">Редактирование профиля</h1>
-            <p className="page-description">
-                Проверьте корректность данных. Если обнаружили ошибку, сообщите в техническую поддержку.
-            </p>
-
         <div className="input-block">
             <label>Фамилия</label>
             <input

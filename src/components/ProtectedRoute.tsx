@@ -1,4 +1,4 @@
-import { useContext, ReactNode } from 'react'
+import { useContext, type ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children }: Props) {
     return <>{children}</>
   }
 
-  if (!user) {
+  if (!loading && !user) {
     return <Navigate to="/login" replace />
   }
 

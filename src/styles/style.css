@@ -2899,7 +2899,9 @@ input#elastic-directions {
     height: 12px;
 }
 
-.skeleton-line::after {
+.skeleton-line::after, .user-info-skeleton .header-line::after, 
+.user-info-skeleton .skeleton-avatar::after, .user-info-skeleton 
+.skeleton-shape::after {
     content: "";
     position: absolute;
     top: 0;
@@ -2929,4 +2931,91 @@ input#elastic-directions {
 .skeleton-line.text.short {
     width: 277px;
     margin-bottom: 68px;
+}
+
+.user-info-skeleton {
+    width: 490px;
+    height: 274px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    padding: 21px 34px 34px 34px ;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.user-info-skeleton .skeleton-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 43px;
+}
+
+.skeleton-user .user-name {
+    width: 346px;
+    height: 18px;
+}
+
+.user-info-skeleton .skeleton-avatar {
+    width: 45px;
+    height: 45px;
+    background-color: #E9E9E9;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-info-skeleton .skeleton-details {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.user-info-skeleton .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-info-skeleton .detail .label {
+    width: 164px;
+}
+
+.user-info-skeleton .detail .value {
+    height: 12px;
+    width: 249px;
+    position: relative;
+    overflow: hidden;
+    background-color: #E9E9E9;
+    border-radius: 100px;
+}
+
+.skeleton-profession {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+    height: 160px;
+    width: 490px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    padding: 38px 54px;
+}
+
+.skeleton-profession .profession-title {
+    height: 12px;
+    position: relative;
+    overflow: hidden;
+    background-color: #E9E9E9;
+    border-radius: 100px;
+    margin-right: 0px;
+}
+
+.skeleton-profession .profession-title {
+    width: 260px;
+}
+
+.skeleton-profession .profession-title.long {
+    width: 381px;
 }

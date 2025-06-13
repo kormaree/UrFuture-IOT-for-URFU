@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Panel from "../components/Panel";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
-
+import UserInfoSkeleton from '../components/skeletons/UserInfoSkeleton';
 
 export default function Home() {
     const auth = useContext(AuthContext)!;
@@ -59,30 +59,51 @@ export default function Home() {
                 </div>
             </div>
             <div className="main-page_content_container_info">
-                <div className="main-page_content_container_info_student">
+              {auth.loading ? (
+                <UserInfoSkeleton />
+                ) : user ? (
+                <>
+                    <div className="main-page_content_container_info_student">
                     <div className="main-page_content_container_info_student_container">
                         <h2>
-                            {user?.last_name} {user?.first_name} {user?.patronymic}
+                        {user.last_name} {user.first_name} {user.patronymic}
                         </h2>
                         <img src="/images/black-icon.svg" alt="Иконка" />
                     </div>
                     <h3>Группа:</h3>
-                    <h4>{user?.academic_group || '—'}</h4>
+                    <h4>{user.academic_group || '—'}</h4>
                     <h3>Направление:</h3>
-                    <h4>{user?.direction || '—'}</h4>
-                </div>
-                <div className="main-page_content_container_info_profession">
+                    <h4>{user.direction || '—'}</h4>
+                    </div>
+
+                    <div className="main-page_content_container_info_profession">
                     {user?.profession ? (
-                        <>
-                            <h2>{user.profession}</h2>
-                            <img className="polygon_main-page" src="/images/polygon_main-page.png" alt="" />
-                            <img className="rectangle_main-page" src="/images/rectangle_main-page.png" alt="" />
-                            <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />
-                        </>
+                    <>
+                        <h2>{user.profession}</h2>
+                        <img
+                        className="polygon_main-page"
+                        src="/images/polygon_main-page.png"
+                        alt=""
+                        />
+                        <img
+                        className="rectangle_main-page"
+                        src="/images/rectangle_main-page.png"
+                        alt=""
+                        />
+                        <img
+                        className="ellipse_main-page"
+                        src="/images/ellipse_main-page.png"
+                        alt=""
+                        />
+                    </>
                     ) : (
-                        <h2>Профессия не выбрана</h2>
+                    <h2>Профессия не выбрана</h2>
                     )}
                 </div>
+              </>
+              ) : (
+                <UserInfoSkeleton />
+              )}
             </div>
             </div>
         </div>

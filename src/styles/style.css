@@ -1427,11 +1427,15 @@ input#elastic-directions {
 }
 
 .dropdown-toggle h2 {
-    width: 158px;
+    padding-left: 10px;
     height: 20px;
     font-size: 18px;
     font-weight: 500;
     color: #B8B8B8;
+}
+
+.dropdown-toggle h2.selected {
+    color: #000;
 }
 
 .dropdown-toggle img {

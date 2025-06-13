@@ -58,7 +58,6 @@ export default function LibraryOfProfessions() {
                     id="prof-toggle"
                     type="button"
                     className="dropdown-toggle-2"
-                    data-path={category || 'all'}
                 >
                     <h2>{category || 'Все категории'}</h2>
                     <img

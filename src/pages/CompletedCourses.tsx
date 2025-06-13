@@ -19,7 +19,7 @@ const semesters = [
 ];
 
 export default function CompletedCourses() {
-    const [semester, setSemester] = useState<number | null>(null);
+    const [semester, setSemester] = useState<string | null>(null);
     const [courses, setCourses] = useState<Course[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -32,7 +32,8 @@ export default function CompletedCourses() {
 
     useEffect(() => {
         setLoading(true);
-        fetchCourses(currentPage, pageSize, semester || undefined)
+        const semParam = semester ? semester.split(' ')[0] : undefined;
+        fetchCourses(currentPage, pageSize, semParam)
             .then(data => {
                 setCourses(data.results);
                 setTotalPages(Math.ceil(data.count / pageSize));
@@ -52,7 +53,7 @@ export default function CompletedCourses() {
             id="dropdown-toggle-1"
             className="dropdown-toggle"
           >
-            <h2>Выбор семестра</h2>
+            <h2 className={semester ? 'selected' : ''}>{semester || 'Выбор семестра'}</h2>
             <img className="img_dropdown-active" src="../images/dropdown-off.svg" alt="Закрыто" />
             <img className="img_dropdown-not-active hidden" src="../images/dropdown-on.svg" alt="Открыто" />
           </button>
@@ -61,13 +62,12 @@ export default function CompletedCourses() {
             className="dropdown-menu-semesters"
           >
             <li className="dropdown-item" onClick={() => setSemester(null)}>Все курсы</li>
-                    {semesters.map(cat => (
-                        <li className="dropdown-item" key={cat} onClick={() => { 
-                          const semesterNumber = Number(cat.substring(0, 1));
-                          setSemester(semesterNumber);}}>
-                            {cat}
-                        </li>
-                    ))}
+                {semesters.map(cat => (
+                    <li className="dropdown-item" key={cat} onClick={() => { 
+                        setSemester(cat);}}>
+                        {cat}
+                    </li>
+                ))}
           </ul>
         </div>
         <ul className="completed-courses_container">

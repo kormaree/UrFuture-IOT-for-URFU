@@ -3,6 +3,7 @@ import Panel from "../components/Panel";
 import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 import { fetchRecommendations, type Recommendation } from '../api/recommendations';
 import { AuthContext } from '../context/AuthContext';
+import { Navigate } from 'react-router-dom';
 
 export default function ChosenProfession() {
     const auth = useContext(AuthContext)!;
@@ -19,7 +20,7 @@ export default function ChosenProfession() {
     }, []);
 
     if (!user.profession) {
-        return <div>Профессия не выбрана</div>;
+        return <Navigate to="/professions" replace/>
     }
 
     return (
@@ -39,7 +40,7 @@ export default function ChosenProfession() {
                     {recsLoading ? (
                         <p>Загрузка курсов...</p>
                     ) : recs.length === 0 ? (
-                        <p>Курсы не найдены</p>
+                        <p>Рекомендованных курсов не найдено</p>
                     ) : (
                         <div className="courses-container">
                             {recs.map((r) => (

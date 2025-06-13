@@ -80,7 +80,7 @@ export default function Home() {
                             <img className="ellipse_main-page" src="/images/ellipse_main-page.png" alt="" />
                         </>
                     ) : (
-                        <h2>Не выбрана</h2>
+                        <h2>Профессия не выбрана</h2>
                     )}
                 </div>
             </div>

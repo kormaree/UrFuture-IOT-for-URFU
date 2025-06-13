@@ -27,7 +27,7 @@ export interface CourseDetail {
 export async function fetchCourses(
     page: number = 1,
     pageSize: number = 9,
-    semester?: number,
+    semester?: string,
     discipline?: string
 ): Promise<PaginatedResponse<Course>> {
     const params: Record<string, any> = { page };

@@ -4,6 +4,8 @@ import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 import { fetchRecommendations, type Recommendation } from '../api/recommendations';
 import { AuthContext } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
+import ChosenProfessionSkeleton from '../components/skeletons/ChosenProfessionSkeleton';
+import RecommendedCourseSkeleton from '../components/skeletons/RecommendedCourseSkeleton';
 
 export default function ChosenProfession() {
     const auth = useContext(AuthContext)!;
@@ -28,17 +30,23 @@ export default function ChosenProfession() {
             <Panel />
             <div className="profession-container-2">
                 <h1 className="page-title">Ваша выбранная профессия:</h1>
+                { auth.loading
+                ? <ChosenProfessionSkeleton />
+                :
                 <div className="profession-cart-2">
                     <img src='/images/Block_prof_2.png' alt={user.profession} />
                     <div className="profession-names-2">{user.profession}</div>
                 </div>
-
+                }
+            
                 <ProfessionInfoPoints />
 
                 <div className="courses-section">
                     <h2 className="courses-title-2">Лучшие курсы для вашей профессии за все семестры:</h2>
                     {recsLoading ? (
-                        <p>Загрузка курсов...</p>
+                        Array(5).fill(0).map((_, i) => (
+                            <RecommendedCourseSkeleton key={i} />
+                        ))
                     ) : recs.length === 0 ? (
                         <p>Рекомендованных курсов не найдено</p>
                     ) : (

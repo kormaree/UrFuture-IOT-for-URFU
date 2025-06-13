@@ -3066,3 +3066,47 @@ input#elastic-directions {
     margin-left: 6px;
     margin-top: 9px;
 }
+
+.skeleton-chosen-profession {
+    width: 452px;
+    height: 181px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    margin-top: 57px;
+}
+
+.skeleton-chosen-profession .skeleton-line {
+    width: 195px;
+    height: 12px;
+    margin-right: 0px;
+}
+
+.skeleton-chosen-profession .profession-title.long {
+    width: 261px;
+}
+
+.skeleton-recommended-course {
+    width: 840px;
+    height: 130px;
+    background-color: #F2F2F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 26px;
+    border-radius: 10px;
+    padding-left: 40px;
+}
+
+.skeleton-recommended-course .skeleton-line {
+    width: 541px;
+    height: 10px;
+}
+
+.skeleton-recommended-course .skeleton-line.long {
+    width: 646px;
+}

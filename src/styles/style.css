@@ -2320,6 +2320,7 @@ input#elastic-directions {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    max-width: 1560px;
 }
         
 .profession-card {
@@ -2894,14 +2895,14 @@ input#elastic-directions {
 .skeleton-line {
     position: relative;
     overflow: hidden;
-    background-color: #E9E9E9;
+    background-color: rgba(227, 228, 236, 0.66);
     border-radius: 100px;
     height: 12px;
 }
 
 .skeleton-line::after, .user-info-skeleton .header-line::after, 
 .user-info-skeleton .skeleton-avatar::after, .user-info-skeleton 
-.skeleton-shape::after {
+.skeleton-shape::after, .skeleton-view-button::after {
     content: "";
     position: absolute;
     top: 0;
@@ -2924,11 +2925,11 @@ input#elastic-directions {
     margin-bottom: 18px;
 }
 
-.skeleton-line.text {
+.course-card-skeleton .skeleton-line.text {
     width: 307px;
 }
 
-.skeleton-line.text.short {
+.course-card-skeleton .skeleton-line.text.short {
     width: 277px;
     margin-bottom: 68px;
 }
@@ -3018,4 +3019,50 @@ input#elastic-directions {
 
 .skeleton-profession .profession-title.long {
     width: 381px;
+}
+
+.profession-card-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 315px;
+    height: 370px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    padding: 0 49px;
+    margin-right: 12px;
+}
+
+.profession-card-skeleton .skeleton-line {
+    width: 184px;
+    height: 14px;
+}
+
+.profession-card-skeleton .skeleton-line:nth-child(1) {
+    margin: 132px 0px 14px 0px;
+}
+
+.skeleton-view-wrapper {
+    background-color: rgb(234, 236, 243, 0.68);
+    width: 315px;
+    height: 106px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skeleton-view-wrapper .skeleton-view-button {
+    width: 137px;
+    height: 38px;
+    background-color: rgb(217, 220, 230, 0.66);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.professions-skeleton-cards-wrapper {
+    margin-left: 6px;
+    margin-top: 9px;
 }

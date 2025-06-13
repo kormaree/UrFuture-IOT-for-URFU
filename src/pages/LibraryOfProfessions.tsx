@@ -5,6 +5,7 @@ import ProfessionCard from '../components/ProfessionCard';
 import Panel from '../components/Panel';
 import DropdownComponent from '../components/DropdownToggle';
 import Pagination from '../components/Pagination';
+import ProfessionCardSkeleton from '../components/skeletons/ProfessionCardSkeleton';
 import '../styles/style.css';
 
 const categories = [
@@ -86,7 +87,10 @@ export default function LibraryOfProfessions() {
 
             <div className="profession-cards-container">
                 {loading
-                    ? <p>Загрузка…</p>
+                    ?
+                    Array(pageSize).fill(0).map((_, i) => (
+                        <ProfessionCardSkeleton key={i} />
+                    ))
                     : professions.length === 0
                         ? <p>Профессии не найдены</p>
                         : professions.map(prof => (

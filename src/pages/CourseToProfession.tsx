@@ -1,5 +1,5 @@
 import Panel from "../components/Panel";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import ChosenProfessionRecommendationsSkeleton from "../components/skeletons/ChosenProfessionRecommendationsSkeleton";
 import SemesterCoursesSkeleton from "../components/skeletons/SemesterCoursesSkeleton";
@@ -7,7 +7,8 @@ import SemesterCourses from "../components/SemesterCourses";
 
 export default function CourseToProfession() {
     const auth = useContext(AuthContext)!;
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
+    const loading = true;
     const user = auth.user;
     const coursesCount = 8;
 

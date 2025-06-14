@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import Panel from "../components/Panel";
 import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
-import { fetchRecommendations, type Recommendation } from '../api/recommendations';
+import { fetchTopCourses, type TopCourseRecommendation } from '../api/recommendations';
 import { AuthContext } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import ChosenProfessionSkeleton from '../components/skeletons/ChosenProfessionSkeleton';
@@ -11,12 +11,12 @@ export default function ChosenProfession() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
 
-    const [recs, setRecs] = useState<Recommendation[]>([]);
+    const [recs, setRecs] = useState<TopCourseRecommendation[]>([]);
     const [recsLoading, setRecsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         setRecsLoading(true);
-        fetchRecommendations()
+        fetchTopCourses()
           .then(data => setRecs(data))
           .finally(() => setRecsLoading(false));
     }, []);

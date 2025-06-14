@@ -2,17 +2,24 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Panel from "../components/Panel";
 import { fetchDirectionDetail, type Direction } from '../api/directions';
+import Loading from '../components/Loading';
 
 export default function Direction() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
-
+    const [loading, setLoading] = useState(false);
     const [directionDetail, setDirectionDetail] = useState<Direction>();
 
     useEffect(() => {
+        setLoading(true);
         fetchDirectionDetail(user.direction_id!)
-            .then(data => setDirectionDetail(data));
+            .then(data => setDirectionDetail(data))
+            .finally(() => setLoading(false));
     }, [user]);
+
+    if (loading) {
+        return <Loading />
+    }
 
     return (
         <>
@@ -47,9 +54,7 @@ export default function Direction() {
                     </div>
                 </div>
                 <span className="my-direction_info-of-direction">
-                    {directionDetail
-                      ? directionDetail.description
-                      : 'Описание загружается...'}
+                    {directionDetail?.description}
                 </span>
                 <div className="my-direction_info-main-persons">
                     <div className="my-direction_info-main-persons_container">

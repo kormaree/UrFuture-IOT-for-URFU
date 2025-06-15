@@ -9,6 +9,9 @@ html {
     font-family: "Montserrat", sans-serif !important;
 }
 
+html, body {
+    overflow-x: hidden;
+}
 
 body {
     margin: 0;
@@ -1778,7 +1781,7 @@ input#elastic-directions {
     margin-top: 64px;
     margin-left: 108px;
     width: 100%;
-    height: calc(100% - 125px);
+    height: auto;
 }
 
 .courses-title {
@@ -1802,8 +1805,6 @@ input#elastic-directions {
     gap: 58px; 
     padding: 0 104px;
     margin-top: 40px;
-    height: 820px; /* Или другая подходящая высота */
-    overflow: hidden;
 }
 
 .semesters-container {
@@ -1843,19 +1844,16 @@ input#elastic-directions {
 }
 
 .semester-block {
+    display: flex;
+    flex-direction: column;
     width: 390px;
-    height: 746px;
+    max-height: 746px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.12);
     padding: 0;
     position: relative;
     flex-shrink: 0;
     filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.12));
-}
-
-.semester-block {
-    box-shadow: none;
 }
 
 .semester-title {
@@ -1878,15 +1876,13 @@ input#elastic-directions {
 }
 
 .subjects-container {
-    height: calc(746px - 89px - 30px); /* Высота блока минус заголовок и отступы */
-    width: calc(100%);
+    width: 100%;
+    height: auto;
+    max-height: calc(746px - 60px);
     overflow-y: auto;
     padding-left: 13px;
     padding-right: 9px;
-    box-sizing: border-box;
-    position: absolute;
-    top: 89px;
-    bottom: 30px;
+    margin-top: 60px;
 }
 
 .subjects-container::-webkit-scrollbar {
@@ -1898,23 +1894,18 @@ input#elastic-directions {
     border-radius: 8px;
 }
 
-.subject-item:last-child {
+.recommendation-wrapper:last-child .subject-item {
     margin-bottom: 0;
 }
 
 .subject-item {
     width: 358px;
-    height: 60px;
+    min-height: 60px;
     border-radius: 8px;
     margin-bottom: 21px;
-    display: flex;
-    align-items: center;
-    padding-left: 23px;
-    box-sizing: border-box;
+    padding: 16px 0 16px 23px;
     cursor: pointer;
     transition: transform 0.2s;
-    text-decoration: none;
-    color: inherit;
 }
 
 .subject:hover {
@@ -1925,7 +1916,6 @@ input#elastic-directions {
     font-size: 20px;
     font-weight: 500; 
     width: 320px;
-    height: 30px;
     line-height: 30px;
 }
 
@@ -1934,11 +1924,11 @@ input#elastic-directions {
     line-height: 21px;
 }
 
-.subject-item[data-category="humanities"] {background-color: #DBBDFF;}
-.subject-item[data-category="analytical"] {background-color: #B2DFFF;}
-.subject-item[data-category="natural-science"] {background-color: #FFCEC5;}
-.subject-item[data-category="programming"] {background-color: #ACFFC7;}
-.subject-item[data-category="mathematics"] {background-color: #FFEDB1;}
+.subject-item[data-category="Гуманитарные предметы"] {background-color: #DBBDFF;}
+.subject-item[data-category="Инженерные предметы"] {background-color: #B2DFFF;}
+.subject-item[data-category="Естественно-научные предметы"] {background-color: #FFCEC5;}
+.subject-item[data-category="Программирование"] {background-color: #ACFFC7;}
+.subject-item[data-category="Математика"] {background-color: #FFEDB1;}
 
 
 .info-type-container {
@@ -3155,4 +3145,32 @@ input#elastic-directions {
 
 .semester-block .skeleton-subject-item:not(:last-child) {
     margin-bottom: 21px;
+}
+
+.recommendation-wrapper {
+    position: relative;
+}
+
+.recommendation-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+    color: #000;
+    padding: 15px 22px;
+    font-size: 20px;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.recommendation-tooltip.visible {
+    opacity: 1;
 }

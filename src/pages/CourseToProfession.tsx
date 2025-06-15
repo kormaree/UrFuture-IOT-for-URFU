@@ -1,16 +1,28 @@
 import Panel from "../components/Panel";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import ChosenProfessionRecommendationsSkeleton from "../components/skeletons/ChosenProfessionRecommendationsSkeleton";
 import SemesterCoursesSkeleton from "../components/skeletons/SemesterCoursesSkeleton";
 import SemesterCourses from "../components/SemesterCourses";
+import { fetchRecommendations, type SemesterRecommendations } from "../api/recommendations";
 
 export default function CourseToProfession() {
     const auth = useContext(AuthContext)!;
-    // const [loading, setLoading] = useState(true);
-    const loading = true;
+    const [loading, setLoading] = useState(true);
     const user = auth.user;
+    const [semesters, setSemesters] = useState<SemesterRecommendations[]>([]);
     const coursesCount = 8;
+
+    useEffect(() => {
+    if (user) {
+      setLoading(true);
+      fetchRecommendations()
+        .then(data => {
+                setSemesters(data)
+            })
+        .finally(() => setLoading(false));
+    }
+  }, [user]);
 
     return (
     <>
@@ -24,18 +36,19 @@ export default function CourseToProfession() {
 
         <div className="main-content-container">
             <div className="semesters-container">
-                {loading ?
-                    (
-                        Array(coursesCount).fill(0).map((_, i) => (
-                            <SemesterCoursesSkeleton key={i} />
-                        ))
-                    )
-                : (
+                {loading ? (
                     Array(coursesCount).fill(0).map((_, i) => (
-                        <SemesterCourses key={i} />
+                        <SemesterCoursesSkeleton key={i} />
                     ))
-                )
-                }
+                ) : (
+                    semesters.map((semesterData: SemesterRecommendations) => (
+                        <SemesterCourses
+                            key={semesterData.semester}
+                            semester={semesterData.semester}
+                            courses={semesterData.courses}
+                        />
+                    ))
+                )}
             </div>
 
             <div className="info-type-container">

@@ -10,6 +10,7 @@ export interface TopCourseRecommendation {
 
 export interface CourseRecommendation {
     discipline: string;
+    discipline_category: string;
     course: string | null;
     weight: number | null;
 }

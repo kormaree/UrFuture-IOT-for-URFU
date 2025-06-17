@@ -5,13 +5,14 @@ import ChosenProfessionRecommendationsSkeleton from "../components/skeletons/Cho
 import SemesterCoursesSkeleton from "../components/skeletons/SemesterCoursesSkeleton";
 import SemesterCourses from "../components/SemesterCourses";
 import { fetchRecommendations, type SemesterRecommendations } from "../api/recommendations";
+import { Link } from "react-router-dom";
 
 export default function CourseToProfession() {
     const auth = useContext(AuthContext)!;
     const [loading, setLoading] = useState(true);
     const user = auth.user;
     const [semesters, setSemesters] = useState<SemesterRecommendations[]>([]);
-    const coursesCount = 8;
+    const semestersCount = 8;
 
     useEffect(() => {
     if (user) {
@@ -37,7 +38,7 @@ export default function CourseToProfession() {
         <div className="main-content-container">
             <div className="semesters-container">
                 {loading ? (
-                    Array(coursesCount).fill(0).map((_, i) => (
+                    Array(semestersCount).fill(0).map((_, i) => (
                         <SemesterCoursesSkeleton key={i} />
                     ))
                 ) : (
@@ -55,12 +56,14 @@ export default function CourseToProfession() {
                 {auth.loading
                 ? <ChosenProfessionRecommendationsSkeleton/> 
                 : (
-                    <div className="specialist-block">
-                        <div className="specialist-content">
-                            <img src="../images/Bloсk_prof.png" alt="Блок профессии" className="specialist-image"/>
-                            <h3 className="specialist-title">{user.profession}</h3>
+                    <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
+                        <div className="specialist-block">
+                            <div className="specialist-content">
+                                <img src="../images/Bloсk_prof.png" alt="Блок профессии" className="specialist-image"/>
+                                <h3 className="specialist-title">{user.profession}</h3>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 )
                 }
 

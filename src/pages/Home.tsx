@@ -78,7 +78,7 @@ export default function Home() {
 
                     <div className="main-page_content_container_info_profession">
                     {user?.profession ? (
-                    <>
+                    <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
                         <h2>{user.profession}</h2>
                         <img
                         className="polygon_main-page"
@@ -95,7 +95,7 @@ export default function Home() {
                         src="/images/ellipse_main-page.png"
                         alt=""
                         />
-                    </>
+                    </Link>
                     ) : (
                     <h2>Профессия не выбрана</h2>
                     )}

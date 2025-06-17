@@ -13,6 +13,7 @@ export default function ProfessionPage() {
     const [loading, setLoading] = useState<boolean>(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const user = auth.user;
 
     const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export default function ProfessionPage() {
         setIsSubmitting(true);
         try {
             await updateUserProfession(profession.id);
-            auth.setUser({ ...auth.user, profession: profession.name });
+            auth.setUser({ ...auth.user, profession: profession.name, profession_id: profession.id});
             navigate(`/chosen-profession`);
         }
         finally {
@@ -54,6 +55,8 @@ export default function ProfessionPage() {
       return <Loading />
     }
 
+    const isUserProfession = user?.profession_id === Number(id);
+
     return (
         <>
             <Panel />
@@ -74,9 +77,13 @@ export default function ProfessionPage() {
                     <button 
                         className="choose-profession-btn"
                         onClick={handleChooseProfession}
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || isUserProfession}
+                        style={{
+                            backgroundColor: isUserProfession ? '#68CC68' : '#363786',
+                            cursor: isUserProfession ? 'auto' : 'pointer'
+                        }}
                     >
-                        {isSubmitting ? "Загрузка..." : "выбрать профессию"}
+                        {isSubmitting ? "Загрузка..." : (isUserProfession ? "Профессия выбрана" : "выбрать профессию")}
                     </button>
                 </div>
                 

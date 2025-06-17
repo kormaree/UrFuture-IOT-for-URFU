@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import ChosenProfessionSkeleton from '../components/skeletons/ChosenProfessionSkeleton';
 import RecommendedCourseSkeleton from '../components/skeletons/RecommendedCourseSkeleton';
+import { Link } from 'react-router-dom';
 
 export default function ChosenProfession() {
     const auth = useContext(AuthContext)!;
@@ -33,10 +34,12 @@ export default function ChosenProfession() {
                 { auth.loading
                 ? <ChosenProfessionSkeleton />
                 :
-                <div className="profession-cart-2">
-                    <img src='/images/Block_prof_2.png' alt={user.profession} />
-                    <div className="profession-names-2">{user.profession}</div>
-                </div>
+                <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
+                    <div className="profession-cart-2">
+                        <img src='/images/Block_prof_2.png' alt={user.profession} />
+                        <div className="profession-names-2">{user.profession}</div>
+                    </div>
+                </Link>
                 }
             
                 <ProfessionInfoPoints />

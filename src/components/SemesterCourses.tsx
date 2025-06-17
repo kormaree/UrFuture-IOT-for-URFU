@@ -21,7 +21,10 @@ export default function SemesterCourses({ semester, courses }: SemesterCoursesPr
                         <div
                             className="subject-item"
                             data-category={rec.discipline_category  }
-                            style={{ opacity: !rec.course ? 0.4 : 1 }}
+                            style={{
+                                opacity: !rec.course ? 0.4 : 1,
+                                cursor: !rec.course ? 'auto' : 'pointer'
+                             }}
                             onMouseEnter={() => setHovered(idx)}
                             onMouseLeave={() => setHovered(null)}
                         >

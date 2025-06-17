@@ -9,6 +9,7 @@ export interface User {
     patronymic: string;
     email: string;
     profession: string | null;
+    profession_id: number | null;
     direction: string | null;
     direction_id: number | null;
     academic_group: string | null;

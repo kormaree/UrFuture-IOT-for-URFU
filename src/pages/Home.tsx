@@ -76,30 +76,32 @@ export default function Home() {
                     <h4>{user.direction || '—'}</h4>
                     </div>
 
-                    <div className="main-page_content_container_info_profession">
                     {user?.profession ? (
-                    <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
-                        <h2>{user.profession}</h2>
-                        <img
-                        className="polygon_main-page"
-                        src="/images/polygon_main-page.png"
-                        alt=""
-                        />
-                        <img
-                        className="rectangle_main-page"
-                        src="/images/rectangle_main-page.png"
-                        alt=""
-                        />
-                        <img
-                        className="ellipse_main-page"
-                        src="/images/ellipse_main-page.png"
-                        alt=""
-                        />
-                    </Link>
+                      <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
+                        <div className="main-page_content_container_info_profession">
+                          <h2>{user.profession}</h2>
+                          <img
+                            className="polygon_main-page"
+                            src="/images/polygon_main-page.png"
+                            alt=""
+                          />
+                          <img
+                            className="rectangle_main-page"
+                            src="/images/rectangle_main-page.png"
+                            alt=""
+                          />
+                          <img
+                            className="ellipse_main-page"
+                            src="/images/ellipse_main-page.png"
+                            alt=""
+                          />
+                        </div>
+                      </Link>
                     ) : (
-                    <h2>Профессия не выбрана</h2>
+                      <div className="main-page_content_container_info_profession">
+                        <h2>Профессия не выбрана</h2>
+                      </div>
                     )}
-                </div>
               </>
               ) : (
                 <UserInfoSkeleton />

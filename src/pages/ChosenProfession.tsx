@@ -34,12 +34,12 @@ export default function ChosenProfession() {
                 { auth.loading
                 ? <ChosenProfessionSkeleton />
                 :
-                <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
                     <div className="profession-cart-2">
-                        <img src='/images/Block_prof_2.png' alt={user.profession} />
+                        <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
+                            <img src='/images/Block_prof_2.png' alt={user.profession} />
                         <div className="profession-names-2">{user.profession}</div>
+                        </Link>
                     </div>
-                </Link>
                 }
             
                 <ProfessionInfoPoints />

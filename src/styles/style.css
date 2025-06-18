@@ -3184,3 +3184,31 @@ input#elastic-directions {
     color: #333;
     text-decoration: none;
 }
+
+.no-profession-message {
+    padding: 2rem;
+    text-align: left;
+    width: 350px;
+    font-size: 22px;
+}
+
+.no-profession-message p {
+    margin-bottom: 1.5rem;
+
+}
+
+.choose-profession-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #404187;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.choose-profession-link:hover {
+    cursor: pointer;
+}

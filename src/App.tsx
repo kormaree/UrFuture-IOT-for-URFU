@@ -17,6 +17,7 @@ import CompletedCourses from './pages/CompletedCourses';
 import EditProfile from './pages/EditProfile';
 import NotFoundPage from './pages/NotFoundPage';
 import Loading from './components/Loading';
+import CoursesToProfessions from './pages/CoursesToProfessions';
 
 function RootRedirect() {
     const auth = useContext(AuthContext)!;
@@ -44,6 +45,7 @@ export default function App() {
                 <Route path="home/" element={<Home />} />
                 <Route path="/direction" element={<Direction />} />
                 <Route path="/course-to-profession" element={<CourseToProfession />} />
+                <Route path="/courses-to-professions" element={<CoursesToProfessions />} />
                 <Route path="/completed-courses" element={<CompletedCourses />} />
                 <Route path="/chosen-profession" element={<ChosenProfession />} />
                 <Route path="/edit-profile" element={<EditProfile />} />

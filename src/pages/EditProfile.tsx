@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Panel from "../components/Panel";
 import '../styles/style.css'
 import { AuthContext } from '../context/AuthContext';
 import { updateUserProfile } from '../api/users';
+import Loading from '../components/Loading';
 
 export default function EditProfile() {
     const auth = useContext(AuthContext)!;
-    const user = auth.user;
-    const [firstName, setFirstName] = useState<string>(user.first_name);
-    const [lastName, setLastName] = useState<string>(user.last_name);
-    const [patronymic, setPatronymic] = useState<string>(user.patronymic);
-    const [academicGroup, setAcademicGroup] = useState<string>(user.academic_group || '');
-    const [email, setEmail] = useState<string>(user.email);
+
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [patronymic, setPatronymic] = useState<string>('');
+    const [academicGroup, setAcademicGroup] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -21,6 +22,20 @@ export default function EditProfile() {
     const [isSavingProfile, setIsSavingProfile] = useState(false);
     const [isChangingPassword, setIsChangingPassword] = useState(false);
     const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        if (auth.user) {
+            setFirstName(auth.user.first_name);
+            setLastName(auth.user.last_name);
+            setPatronymic(auth.user.patronymic);
+            setAcademicGroup(auth.user.academic_group || '');
+            setEmail(auth.user.email);
+        }
+    }, [auth.user]);
+
+    if (auth.loading || !auth.user) {
+        return <Loading />
+    }
 
     const handleSaveProfile = () => {
       setError('');
@@ -149,7 +164,7 @@ export default function EditProfile() {
           onClick={handleSaveProfile}
           disabled={isSavingProfile}
         >
-          {isSavingProfile ? 'Сохранение...' : 'Сохранить'}
+          {isSavingProfile ? 'сохранение...' : 'сохранить'}
         </button>
 
         <div className="password-section">
@@ -191,7 +206,7 @@ export default function EditProfile() {
               onClick={handleChangePassword}
               disabled={isChangingPassword}
             >
-              {isChangingPassword ? 'Сохранение...' : 'Сохранить пароль'}
+              {isChangingPassword ? 'сохранение...' : 'сохранить'}
             </button>
         </div>
 

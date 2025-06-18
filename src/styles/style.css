@@ -100,6 +100,10 @@ a {
     text-decoration: none;
 }
 
+.panel_ul_sections_line div {
+    cursor: pointer;
+}
+
 .panel_ul_sections_line ul a {
     width: 443px;
     height: 61px;
@@ -3067,7 +3071,8 @@ input#elastic-directions {
     gap: 19px;
     background-color: #F7F7F7;
     border-radius: 10px;
-    margin-top: 57px;
+    margin-top: 45px;
+    margin-bottom: 60px;
 }
 
 .skeleton-chosen-profession .skeleton-line {

@@ -7,18 +7,20 @@ import Loading from '../components/Loading';
 export default function Direction() {
     const auth = useContext(AuthContext)!;
     const user = auth.user;
+    
     const [loading, setLoading] = useState(false);
     const [directionDetail, setDirectionDetail] = useState<Direction>();
 
     useEffect(() => {
+        if (auth.loading || !user?.direction_id) return;
         setLoading(true);
-        fetchDirectionDetail(user.direction_id!)
+        fetchDirectionDetail(user.direction_id)
             .then(data => setDirectionDetail(data))
             .finally(() => setLoading(false));
-    }, [user]);
+    }, [auth.loading, user?.direction_id]);
 
-    if (loading) {
-        return <Loading />
+    if (auth.loading || !user || loading) {
+        return <Loading />;
     }
 
     return (

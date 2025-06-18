@@ -3,7 +3,6 @@ import Panel from "../components/Panel";
 import ProfessionInfoPoints from '../components/ProfessionInfoPoints';
 import { fetchTopCourses, type TopCourseRecommendation } from '../api/recommendations';
 import { AuthContext } from '../context/AuthContext';
-import { Navigate } from 'react-router-dom';
 import ChosenProfessionSkeleton from '../components/skeletons/ChosenProfessionSkeleton';
 import RecommendedCourseSkeleton from '../components/skeletons/RecommendedCourseSkeleton';
 import { Link } from 'react-router-dom';
@@ -22,21 +21,18 @@ export default function ChosenProfession() {
           .finally(() => setRecsLoading(false));
     }, []);
 
-    if (!user.profession) {
-        return <Navigate to="/professions" replace/>
-    }
 
     return (
         <>
             <Panel />
             <div className="profession-container-2">
                 <h1 className="page-title">Ваша выбранная профессия:</h1>
-                { auth.loading
+                { auth.loading || !auth.user
                 ? <ChosenProfessionSkeleton />
                 :
                     <div className="profession-cart-2">
                         <Link to={`/professions/${user.profession_id}`} className="link-to-user-profession">
-                            <img src='/images/Block_prof_2.png' alt={user.profession} />
+                            <img src='/images/Block_prof_2.png' alt={user.profession!} />
                         <div className="profession-names-2">{user.profession}</div>
                         </Link>
                     </div>

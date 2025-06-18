@@ -2,9 +2,10 @@ import { useEffect, useRef } from 'react';
 
 interface ElasticSearchProps {
     onSelect: (value: string) => void;
+    className?: string;
 }
 
-export default function ElasticSearch({ onSelect }: ElasticSearchProps) {
+export default function ElasticSearch({ onSelect, className = '' }: ElasticSearchProps) {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -44,5 +45,5 @@ export default function ElasticSearch({ onSelect }: ElasticSearchProps) {
         };
     }, [onSelect]);
 
-    return <input id="elastic-directions" ref={inputRef} />;
+    return <input id="elastic-directions" ref={inputRef} className={`${className}`} />;
 };

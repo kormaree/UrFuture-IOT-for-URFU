@@ -90,13 +90,14 @@ export default function CoursesToProfessions() {
 
                 <div className="info-type-container">
                     <div className="choosing-profession_container">
-                        <div className="dropdown-container">
+                        <div className="dropdown-container dropdown-container-professions">
                         <button
                             id="prof-toggle"
                             type="button"
-                            className="dropdown-toggle-2"
+                            className="dropdown-toggle-2 dropdown-toggle-3"
                         >
                             <ElasticSearch 
+                                className="profession-search-input"
                                 onSelect={(value) => {
                                     const profession = professions.find(p => 
                                         p.name.toLowerCase().includes(value.toLowerCase())
@@ -118,8 +119,7 @@ export default function CoursesToProfessions() {
                             />
                         </button>
 
-                        <ul id="prof-menu" className="dropdown-menu elastic-directions">
-                            <li onClick={() => setProfessions}>Все профессии</li>
+                        <ul id="prof-menu" className="dropdown-menu elastic-directions dropdown-professions">
                             {professions.map(cat => (
                                 <li key={cat.id}>
                                     <button

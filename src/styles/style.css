@@ -3212,3 +3212,11 @@ input#elastic-directions {
 .choose-profession-link:hover {
     cursor: pointer;
 }
+
+.choosing-profession_container {
+    width: 351px;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

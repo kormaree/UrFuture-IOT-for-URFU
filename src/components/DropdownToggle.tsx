@@ -8,6 +8,10 @@ interface DropdownProps {
 const DropdownComponent: React.FC<DropdownProps> = ({ toggleId, menuId }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const openDropdown = () => {
+    setIsOpen(true);
+  };
+
   const toggleDropdown = (e: Event) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
@@ -20,10 +24,12 @@ const DropdownComponent: React.FC<DropdownProps> = ({ toggleId, menuId }) => {
   useEffect(() => {
     const toggle = document.getElementById(toggleId);
     const menu = document.getElementById(menuId);
+    const input = document.getElementById('elastic-directions');
+    
 
     if (toggle && menu) {
       toggle.addEventListener('click', toggleDropdown);
-
+      input!.addEventListener('input', openDropdown);
       const menuItems = menu.querySelectorAll('a, li, button, div[role="button"]');
       menuItems.forEach(item => {
         item.addEventListener('click', closeDropdown);

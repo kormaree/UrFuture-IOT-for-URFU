@@ -10,8 +10,6 @@ export interface PaginatedResponse<T> {
 export interface Profession {
     id: number;
     name: string;
-    discipline: string;
-    semester: string;
 }
 
 export interface ProfessionDetail {
@@ -36,6 +34,10 @@ export async function fetchProfessions(
     return response.data;
 }
 
+export async function fetchAllProfessions(): Promise<Profession[]> {
+    const response = await api.get<Profession[]>('/professions/all');
+    return response.data;
+}
 
 export async function fetchProfessionDetail(id: number): Promise<ProfessionDetail> {
     const response = await api.get<ProfessionDetail>(`/professions/${id}/`);

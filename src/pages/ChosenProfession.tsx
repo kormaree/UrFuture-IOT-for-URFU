@@ -5,7 +5,7 @@ import { fetchTopCourses, type TopCourseRecommendation } from '../api/recommenda
 import { AuthContext } from '../context/AuthContext';
 import ChosenProfessionSkeleton from '../components/skeletons/ChosenProfessionSkeleton';
 import RecommendedCourseSkeleton from '../components/skeletons/RecommendedCourseSkeleton';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export default function ChosenProfession() {
     const auth = useContext(AuthContext)!;
@@ -21,6 +21,10 @@ export default function ChosenProfession() {
           .finally(() => setRecsLoading(false));
     }, []);
 
+
+    if (!auth.loading && !user.profession) {
+        return <Navigate to="/professions" replace/>
+    }
 
     return (
         <>

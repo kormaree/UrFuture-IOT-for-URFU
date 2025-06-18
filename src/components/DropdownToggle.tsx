@@ -30,7 +30,10 @@ const DropdownComponent: React.FC<DropdownProps> = ({ toggleId, menuId }) => {
     if (toggle && menu) {
       toggle.addEventListener('click', toggleDropdown);
       input?.addEventListener('input', openDropdown);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 285edc1d91549030f4ce85b735a8cabc533910b4
       const menuItems = menu.querySelectorAll('a, li, button, div[role="button"]');
       menuItems.forEach(item => {
         item.addEventListener('click', closeDropdown);

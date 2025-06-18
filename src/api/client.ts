@@ -2,7 +2,7 @@ import axios from 'axios';
 import { authService } from '../utils/authService';
 
 const api = axios.create({
-    baseURL: 'http://urfuture.tech/api/',
+    baseURL: 'https://urfuture.tech/api/',
     headers: {
         'Content-Type': 'application/json'
      },
